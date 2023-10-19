@@ -49,72 +49,26 @@ export const MuiDrawer = ({}) => {
         <Box p={2} width="250px" textAlign="center" role="presentation">
           <div className={Styles.header}>{/* {`DataSoft Tanzania`} */}</div>
           <List>
-            {segment != null ? (
-              <>
-                <Divider />
-                <Link
-                  href={"/"}
-                  className={
-                    "Notes" == "Notes" ? Styles.active : Styles.setCenter
-                  }
-                  onClick={() => {
-                    handleMenuClick("");
-                  }}
-                >
-                  Home
-                </Link>
-                <Divider />
-              </>
-            ) : (
-              <>
-                <Divider />
-                <a
-                  href="#home"
-                  className={
-                    "Notes" == "Notes" ? Styles.active : Styles.setCenter
-                  }
-                  onClick={() => {
-                    handleMenuClick("");
-                  }}
-                >
-                  Home
-                </a>
-                <Divider />
-              </>
-            )}
-            {segment == null && (
-              <>
-                <a
-                  href={"#services"}
-                  className={false ? Styles.active : Styles.setCenter}
-                  onClick={() => {
-                    handleMenuClick("");
-                  }}
-                >
-                  Services
-                </a>
-                <Divider />
-                <a
-                  href={"#projects"}
-                  className={false ? Styles.active : Styles.setCenter}
-                  onClick={() => {
-                    handleMenuClick("");
-                  }}
-                >
-                  Projects
-                </a>
-                <Divider />
-              </>
-            )}
-            <a
-              href="#idea"
-              className={false ? Styles.active : Styles.setCenter}
+            <Divider />
+            <Link
+              href={"/"}
+              className={"Notes" == "Notes" ? Styles.active : Styles.setCenter}
               onClick={() => {
                 handleMenuClick("");
               }}
             >
-              Contact Us
-            </a>
+              Utabili Leo
+            </Link>
+            <Divider />
+            <Link
+              href={"/"}
+              className={"Notes" == "Notes" ? Styles.active : Styles.setCenter}
+              onClick={() => {
+                handleMenuClick("");
+              }}
+            >
+              Maokoto VIP
+            </Link>
             <Divider />
           </List>
         </Box>
