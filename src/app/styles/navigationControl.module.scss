@@ -1,0 +1,26 @@
+@media only screen and (max-width: 958px) {
+  .pc {
+    display: none;
+  }
+}
+@media only screen and (min-width: 958px) {
+  .mobile {
+    display: none;
+  }
+}
+
+.fixed {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  margin: 0;
+  padding: 0;
+  background: -webkit-linear-gradient(right, rgba(#f1f1f1, 1) 0%, gold 100%);
+  background: -moz-linear-gradient(right, rgba(#f1f1f1, 1) 0%, gold 100%);
+  background: -ms-linear-gradient(right, rgba(#f1f1f1, 1) 0%, gold 100%);
+  background: linear-gradient(to right, rgba(#f1f1f1, 1) 0%, gold 100%);
+}

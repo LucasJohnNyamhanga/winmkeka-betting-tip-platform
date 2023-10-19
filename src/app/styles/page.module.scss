@@ -1,0 +1,21 @@
+@import "index";
+$height: 0px;
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  font-family: $fontHeader;
+  font-weight: 800;
+  font-size: xx-large;
+  color: black;
+  background: -webkit-linear-gradient(right, rgba(#f1f1f1, 1) 0%, gold 100%);
+  background: -moz-linear-gradient(right, rgba(#f1f1f1, 1) 0%, gold 100%);
+  background: -ms-linear-gradient(right, rgba(#f1f1f1, 1) 0%, gold 100%);
+  background: linear-gradient(to right, rgba(#f1f1f1, 1) 0%, gold 100%);
+  position: relative;
+  background-color: red;
+}

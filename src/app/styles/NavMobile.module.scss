@@ -1,0 +1,158 @@
+@import "index";
+
+.mainContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+}
+
+.innerContainerTop {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .NavDetails {
+    background-color: transparent;
+    font-family: $fontHeader;
+    font-size: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: $green;
+    height: fit-content;
+
+    .topAdvatisment {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-top: 5px;
+
+      div {
+        text-align: center;
+        width: fit-content;
+        margin-top: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-weight: 700;
+        font-size: 15px;
+        color: $ugoro;
+      }
+    }
+  }
+
+  .NavHeader {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    .nav {
+      font-family: $fontHeader;
+      font-weight: 400;
+      background-color: transparent;
+      width: 100%;
+      height: 60px;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      // .drawer {
+      //   z-index: 999999999;
+      // }
+
+      .logo {
+        font-family: $fontHeader;
+        font-weight: 500;
+        font-size: 27px;
+        display: flex;
+        flex-direction: row;
+        cursor: pointer;
+        color: $lightblue;
+
+        .datasoft {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          color: $green;
+          font-weight: 800;
+          height: fit-content;
+          width: fit-content;
+          .icon {
+            padding: 0px;
+            margin: 0px;
+          }
+
+          .name {
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 5px;
+            padding-bottom: 10px;
+          }
+        }
+      }
+
+      .buttonsNav {
+        display: block;
+        position: relative;
+        z-index: 1;
+        user-select: none;
+        appearance: none;
+        border: none;
+        outline: none;
+        background: none;
+        cursor: pointer;
+
+        span {
+          display: block;
+          width: 33px;
+          height: 4px;
+          margin-bottom: 5px;
+          position: relative;
+          background-color: $lightblue;
+          border-radius: 6px;
+          z-index: 1;
+          transform-origin: 0 0;
+          transition: 0.7s;
+        }
+
+        &.isActive span {
+          background-color: $lightkahawa;
+        }
+
+        &.isactive span:nth-child(2) {
+          background-color: $lightkahawa;
+          transform: translateX(10px);
+        }
+
+        &.isActive span:nth-child(1) {
+          transform: translate(0px, -2px) rotate(45deg);
+        }
+
+        &.isActive span:nth-child(2) {
+          opacity: 0;
+          transform: translate(15px);
+        }
+
+        &.isActive span:nth-child(3) {
+          transform: translate(-3px, 3px) rotate(-45deg);
+        }
+      }
+    }
+  }
+}
