@@ -10,7 +10,7 @@ export const NavMobile = () => {
         <div className={Styles.NavDetails}>
           <div className={Styles.topAdvatisment}>
             <div>
-              Call Us: <a href="tel:+255784477999">+255 784 477 999</a>
+              <div>Zingatia Maokoto</div>
             </div>
           </div>
         </div>
