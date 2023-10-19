@@ -12,9 +12,6 @@ export const NavMobile = () => {
             <div>
               Call Us: <a href="tel:+255784477999">+255 784 477 999</a>
             </div>
-            <div>
-              or <a href="#idea"> Fill Form Now</a>
-            </div>
           </div>
         </div>
         <div className={Styles.NavHeader}>
