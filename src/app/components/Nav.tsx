@@ -1,69 +1,84 @@
 "use client";
-import React, { useContext, useEffect, useState } from "react";
 import Styles from "../styles/navigation.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter, useSelectedLayoutSegment } from "next/navigation";
 
 const Nav = () => {
-  const segment = useSelectedLayoutSegment();
+  let handleSignIn = () => {};
 
-  console.log(segment);
-  const router = useRouter();
+  let handleSomaBiblia = () => {};
 
-  const handleNavigation = (nav: string) => {
-    router.push(nav);
-  };
+  let handleLogOut = () => {};
+
+  let handleHover = (neno: string) => {};
+
+  const betOptions = [
+    { name: "Juu magoli 2", link: "/#" },
+    { name: "Chini magoli 2", link: "/#" },
+    { name: "Juu magoli 3", link: "/#" },
+    { name: "Chini magoli 3", link: "/#" },
+    { name: "Ushindi", link: "/#" },
+    { name: "Ashinde sale", link: "/#" },
+  ];
 
   return (
-    <div className={Styles.container} id={"top"}>
+    <div className={Styles.container}>
       <div className={Styles.innerContainerTop}>
         <div className={Styles.NavDetails}>
           <div className={Styles.topAdvatisment}>
-            <p>Zingatia Maokoto</p>
+            <p>Tunakupatia Odd Bora Kukuhakikishia Maokoto Yako.</p>
           </div>
         </div>
+
         <div className={Styles.NavHeader}>
           <nav className={Styles.nav}>
-            <div
-              className={Styles.logo}
-              onClick={(e) => {
-                if (segment != null) {
-                  handleNavigation("/");
-                } else {
-                  handleNavigation("#home");
-                }
-              }}
-            >
-              <div className={Styles.datasoft}>
-                <div className={Styles.icon}>
-                  <Image
-                    alt=""
-                    src={`/brainas.svg`}
-                    placeholder="blur"
-                    blurDataURL={`/brainas.svg`}
-                    style={{
-                      objectFit: "cover",
-                      objectPosition: "right",
-                    }}
-                    quality={100}
-                    priority
-                    unoptimized={true}
-                    width={50}
-                    height={50}
-                  />
-                </div>
-                <div className={Styles.name}>WinMkeka</div>
+            <div className={Styles.logo}>
+              <div className={Styles.icon}>
+                <Image
+                  alt=""
+                  src={"/brainas.svg"}
+                  objectFit={"contain"}
+                  placeholder="blur"
+                  blurDataURL={"/brainas.svg"}
+                  width={40}
+                  height={40}
+                />
               </div>
+              <div className={Styles.kkkt}>WinMkeka</div>
             </div>
-            <div className={Styles.link}>
-              <Link href="/" className={Styles.links}>
-                Utabili Leo
-              </Link>
-              <Link href="/" className={Styles.links}>
-                Maokoto VIP
-              </Link>
+            <div className={Styles.links}>
+              <ul>
+                <div>
+                  <li>
+                    Utabili Leo
+                    <ul>
+                      {betOptions.map((value, index) => (
+                        <Link href={value.link} key={value.name}>
+                          <li>{value.name}</li>
+                        </Link>
+                      ))}
+                    </ul>
+                  </li>
+                </div>
+
+                <Link href="#">
+                  <div
+                  // onClick={() => {
+                  //   setNavActive("Biblia");
+                  // }}
+                  >
+                    <li
+                    // className={
+                    //   "Biblia" == navActive ? Styles.active : Styles.links
+                    // }
+                    >
+                      Maokoto VIP
+                    </li>
+                  </div>
+                </Link>
+              </ul>
             </div>
+            <div className={Styles.buttonsNav}>user</div>
           </nav>
         </div>
       </div>

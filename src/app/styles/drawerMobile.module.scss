@@ -1,8 +1,8 @@
 @import "index";
 
-// .drawer {
-//   z-index: 1;
-// }
+.main {
+  margin-top: 85px;
+}
 
 .setCenter {
   display: flex;
@@ -11,14 +11,15 @@
   justify-content: flex-start;
   padding: 15px;
   font-family: $fontHeader;
-  font-weight: 600;
+  font-weight: 500;
   color: $ugoro;
   cursor: pointer;
 
   &:hover {
-    background-color: $green;
-    color: $white;
+    background-color: $ugoro;
+    color: $nyeupe;
   }
+  z-index: 999;
 }
 
 .active {
@@ -28,25 +29,17 @@
   justify-content: flex-start;
   padding: 15px;
   font-family: $fontHeader;
-  font-weight: 600;
-  color: $black;
+  font-weight: 500;
+  color: $ugoro;
   cursor: pointer;
-  background-color: $gold;
+  background-color: $lightblue;
+  color: $nyeupe;
 }
 
-.header {
-  font-family: $fontHeader;
-  font-weight: 800;
-  padding: 15px;
-  font-size: 20px;
-  color: $green;
-  padding-top: 80px;
+.active:hover {
+  background-color: $lightblue !important;
+  color: $nyeupe !important;
 }
-
-// .active:hover {
-//   background-color: $lightblue !important;
-//   color: $white !important;
-// }
 
 .activeCredential {
   display: flex;
@@ -58,7 +51,7 @@
   font-weight: 500;
   color: $lightblue;
   cursor: pointer;
-  background-color: $white;
+  background-color: $nyeupe;
 }
 
 .buttonsNav {
@@ -71,7 +64,6 @@
   outline: none;
   background: none;
   cursor: pointer;
-  padding: 10px;
 
   span {
     display: block;
@@ -79,7 +71,7 @@
     height: 4px;
     margin-bottom: 5px;
     position: relative;
-    background-color: $green;
+    background-color: $lightblue;
     border-radius: 6px;
     z-index: 1;
     transform-origin: 0 0;
@@ -87,7 +79,7 @@
   }
 
   &.isActive span {
-    background-color: $ugoro;
+    background-color: $lightkahawa;
   }
 
   &.isactive span:nth-child(2) {

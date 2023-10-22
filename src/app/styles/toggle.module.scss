@@ -1,0 +1,63 @@
+@import "index";
+.container {
+  font-family: $fontHeader;
+
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  color: $nyeupe;
+  align-items: flex-start;
+  width: 100%;
+  .toggle {
+    width: 100%;
+    padding: 15px;
+    background-color: $nyeupe;
+    color: $ugoro;
+    text-align: start;
+    font-weight: 500;
+    animation: 2s;
+  }
+
+  .toggle:hover {
+    background-color: $ugoro;
+    color: $nyeupe;
+  }
+
+  .innerContainer {
+    width: 100%;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    align-items: flex-start;
+
+    .itemHolder {
+      width: 100%;
+      background-color: $ugoro;
+    }
+
+    .item {
+      height: fit-content;
+      width: 100%;
+      padding: 10px 15px;
+      background-color: $lightkahawa;
+      color: $ugoro;
+      text-align: start;
+      margin-top: 1px;
+    }
+    .item:hover {
+      background-color: $nyeupe;
+      color: $ugoro;
+    }
+  }
+
+  .active {
+    background-color: $ugoro;
+    color: $nyeupe;
+  }
+
+  .active:hover {
+    background-color: $ugoro !important;
+    color: $nyeupe !important;
+  }
+}

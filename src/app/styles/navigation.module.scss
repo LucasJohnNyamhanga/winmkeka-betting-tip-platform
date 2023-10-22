@@ -4,10 +4,6 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
 }
 
 .innerContainerTop {
@@ -17,8 +13,17 @@
   justify-content: center;
   align-items: center;
 
+  .NavHeaderDetails {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $nyeupe;
+  }
+
   .NavDetails {
-    background-color: transparent;
+    background-color: $lightkahawa;
     height: fit-content;
     min-height: 30px;
     font-family: $fontHeader;
@@ -28,7 +33,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: $green;
+    color: $ugoro;
 
     .topAdvatisment {
       width: 100%;
@@ -36,6 +41,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      font-weight: 500;
 
       p {
         text-align: center;
@@ -44,91 +50,181 @@
         margin: 5px;
         padding-left: 10px;
         padding-right: 10px;
-        color: $ugoro;
-        font-weight: 600;
       }
     }
   }
 
   .NavHeader {
-    background-color: transparent;
     display: flex;
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    background-color: $ugoro;
+    border: 1px solid black;
 
     .nav {
       font-family: $fontHeader;
       font-weight: 400;
       width: 100%;
-      height: 60px;
+      height: 50px;
       max-width: 1200px;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
 
+      padding-left: 2rem;
+      padding-right: 2rem;
+
       .logo {
         font-family: $fontHeader;
         font-weight: 500;
-        font-size: 30px;
+        font-size: 24px;
         display: flex;
         flex-direction: row;
         cursor: pointer;
         color: $lightblue;
 
-        .datasoft {
+        .icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 10px;
+        }
+
+        .kkkt {
+          font-family: $fontHeader;
+          font-weight: 600;
+          font-size: 20px;
+          color: $lightkahawa;
           display: flex;
           flex-direction: row;
           justify-content: center;
           align-items: center;
-          color: $green;
-          font-weight: 800;
-          height: fit-content;
-          width: fit-content;
-          .icon {
-            padding: 0px;
-            margin: 0px;
-          }
-
-          .name {
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-left: 5px;
-            padding-bottom: 10px;
-          }
         }
       }
 
-      .link {
+      .links ul {
         display: flex;
         flex-direction: row;
-        align-items: center;
         justify-content: center;
         list-style-type: none;
         padding: 0 0;
         margin: 0 0;
+        color: $lightkahawa;
       }
 
-      .links {
+      .links ul li {
         padding: 0.5rem 1rem;
         border-radius: 4px;
+        border: 2px solid transparent;
         font-family: $fontHeader;
-        font-weight: 700;
+        font-weight: 500;
         font-size: 16px;
         margin: 0px 1.5px;
-        color: $green;
-        transition: all 0.7s;
+        z-index: 14;
+        position: relative;
       }
 
-      .links:hover {
-        background-color: $ugoro;
-        color: $white;
+      .links ul li:hover {
+        border: 2px solid $lightkahawa;
+        background-color: $lightkahawa;
+        color: $ugoro;
+        border-radius: 4px;
         cursor: pointer;
+      }
+
+      ul li ul {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        padding-top: 25px !important;
+        width: fit-content;
+      }
+
+      ul li ul li {
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        border: 2px solid transparent;
+        font-family: $fontHeader;
+        font-weight: 500 !important;
+        font-size: 15px !important;
+        background-color: $ugoro;
+        color: $nyeupe;
+        margin-bottom: 5px !important;
+        width: 100%;
+        white-space: nowrap;
+        z-index: 999999999 !important;
+      }
+
+      ul li:hover > ul,
+      ul li ul:hover {
+        visibility: visible;
+        opacity: 1;
+        display: flex;
+        flex-direction: column;
+        z-index: 999999999 !important;
+      }
+
+      .buttonsNav {
+        color: $lightkahawa;
+        font-family: $fontHeader;
+        font-weight: 500;
+        font-size: 16px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .validating {
+          font-family: $fontHeader;
+          color: $lightkahawa;
+          font-weight: 500;
+        }
+        .Sign {
+          padding: 0.5rem 1rem;
+          border-radius: 4px;
+          border: 2px solid transparent;
+          font-family: $fontHeader;
+          font-weight: 500;
+          font-size: 16px;
+          margin: 0px 1.5px;
+          background-color: $white;
+          color: $ugoro;
+        }
+
+        .Sign:hover {
+          border: 2px solid $lightkahawa;
+          background-color: $lightkahawa;
+          color: $ugoro;
+          border-radius: 4px;
+          cursor: pointer;
+          color: $ugoro;
+        }
+
+        .Register {
+          padding: 0.5rem 1rem;
+          border-radius: 4px;
+          border: 2px solid $lightblue;
+          background-color: $ugoro;
+          font-family: $fontHeader;
+          font-weight: 500;
+          font-size: 16px;
+          margin: 0px 1.5px;
+          color: $lightkahawa;
+        }
+
+        .Register:hover {
+          border: 2px solid $lightkahawa;
+          background-color: $lightkahawa;
+          color: $ugoro;
+          border-radius: 4px;
+          cursor: pointer;
+        }
       }
     }
   }

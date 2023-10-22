@@ -1,46 +1,59 @@
-import Image from "next/image";
+"use client";
+import React, { useContext, useEffect, useState } from "react";
 import Styles from "../styles/NavMobile.module.scss";
+import Image from "next/image";
 import Link from "next/link";
 import DrawerMobile from "./DrawerMobileMenu";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export const NavMobile = () => {
+  const [limt, setLimit] = useState(0);
+  const matches300 = useMediaQuery("(max-width:325px)");
+
+  let handleSignIn = () => {};
+
+  let handleRegister = () => {};
+
+  let handleLogOut = () => {};
+
+  let handleMobileMenu = (linkValue: string) => {
+    //setNavActive(linkValue);
+  };
+
   return (
-    <div className={Styles.container} id={"top"}>
+    <div className={Styles.container}>
       <div className={Styles.innerContainerTop}>
         <div className={Styles.NavDetails}>
           <div className={Styles.topAdvatisment}>
-            <div>
-              <div>Zingatia Maokoto</div>
-            </div>
+            <p>Zingatia Maokoto</p>
           </div>
         </div>
         <div className={Styles.NavHeader}>
           <nav className={Styles.nav}>
-            <Link passHref href="/" className={Styles.logo}>
-              <div className={Styles.datasoft}>
+            <Link passHref href="/">
+              <div className={Styles.logo}>
                 <div className={Styles.icon}>
                   <Image
                     alt=""
-                    src={`/brainas.svg`}
+                    src={"/brainas.svg"}
+                    objectFit={"contain"}
                     placeholder="blur"
-                    blurDataURL={`/brainas.svg`}
-                    style={{
-                      objectFit: "cover",
-                      objectPosition: "right",
-                    }}
-                    quality={100}
-                    priority
-                    unoptimized={true}
-                    width={50}
-                    height={50}
+                    blurDataURL={"/brainas.svg"}
+                    width={40}
+                    height={40}
                   />
                 </div>
-                <div className={Styles.name}>WinMkeka</div>
+                <div className={Styles.shule}>WINMKEKA</div>
               </div>
             </Link>
-            <div className={Styles.drawer}>
-              <DrawerMobile />
-            </div>
+            <div className={Styles.links}></div>
+            <DrawerMobile
+              handleMenu={handleMobileMenu}
+              navActive={"navActive"}
+              handleSignOut={handleLogOut}
+              handleSighIn={handleSignIn}
+              handleJisajili={handleRegister}
+            />
           </nav>
         </div>
       </div>

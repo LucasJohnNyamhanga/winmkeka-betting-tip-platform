@@ -4,8 +4,6 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  position: relative;
-  z-index: 10;
 }
 
 .innerContainerTop {
@@ -16,7 +14,9 @@
   align-items: center;
 
   .NavDetails {
-    background-color: transparent;
+    background-color: $lightkahawa;
+    height: fit-content;
+    min-height: 30px;
     font-family: $fontHeader;
     font-size: 15px;
     width: 100%;
@@ -24,8 +24,18 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: $green;
-    height: fit-content;
+    color: $ugoro;
+
+    .NavHeaderDetails {
+      width: 100%;
+      .utangulizi {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
 
     .topAdvatisment {
       width: 100%;
@@ -33,23 +43,20 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding-top: 5px;
 
-      div {
-        text-align: center;
+      p {
         width: fit-content;
-        margin-top: 5px;
+        padding: 5px;
+        margin: 5px;
         padding-left: 10px;
         padding-right: 10px;
-        font-weight: 700;
-        font-size: 15px;
-        color: $ugoro;
+        text-align: center;
       }
     }
   }
 
   .NavHeader {
-    background-color: transparent;
+    background-color: $ugoro;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -60,7 +67,7 @@
     .nav {
       font-family: $fontHeader;
       font-weight: 400;
-      background-color: transparent;
+      background-color: $ugoro;
       width: 100%;
       height: 60px;
       max-width: 1200px;
@@ -69,41 +76,27 @@
       align-items: center;
       justify-content: space-between;
 
-      // .drawer {
-      //   z-index: 999999999;
-      // }
-
       .logo {
         font-family: $fontHeader;
         font-weight: 500;
-        font-size: 27px;
+        font-size: 24px;
         display: flex;
         flex-direction: row;
         cursor: pointer;
         color: $lightblue;
 
-        .datasoft {
+        .icon {
           display: flex;
-          flex-direction: row;
-          justify-content: center;
           align-items: center;
-          color: $green;
-          font-weight: 800;
-          height: fit-content;
-          width: fit-content;
-          .icon {
-            padding: 0px;
-            margin: 0px;
-          }
+          justify-content: center;
+          margin-right: 10px;
+        }
 
-          .name {
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-left: 5px;
-            padding-bottom: 10px;
-          }
+        .shule {
+          color: $lightkahawa;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
       }
 
