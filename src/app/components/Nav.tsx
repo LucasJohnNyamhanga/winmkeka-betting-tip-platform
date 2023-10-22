@@ -26,7 +26,7 @@ const Nav = () => {
       <div className={Styles.innerContainerTop}>
         <div className={Styles.NavDetails}>
           <div className={Styles.topAdvatisment}>
-            <p>Tunakupatia Odd Bora Kukuhakikishia Maokoto Yako.</p>
+            <p>Tunakupatia Odd Za Uhakika Kufanikisha Maokoto Yako.</p>
           </div>
         </div>
 
