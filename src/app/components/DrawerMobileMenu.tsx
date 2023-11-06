@@ -47,12 +47,12 @@ export const MuiDrawer = ({
   };
 
   const betOptions = [
-    { name: "Juu magoli 2", link: "/#" },
-    { name: "Chini magoli 2", link: "/#" },
-    { name: "Juu magoli 3", link: "/#" },
-    { name: "Chini magoli 3", link: "/#" },
-    { name: "Ushindi", link: "/#" },
-    { name: "Ashinde sale", link: "/#" },
+    { name: "Over 2.5 Goals", link: "/#" },
+    { name: "Under 2.5 Goals", link: "/#" },
+    { name: "Over 3.5 Goals", link: "/#" },
+    { name: "Under 3.5 Goals", link: "/#" },
+    { name: "Win", link: "/#" },
+    { name: "Win or Draw", link: "/#" },
   ];
 
   return (
