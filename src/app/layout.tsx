@@ -94,9 +94,8 @@ export default function RootLayout({
       <head />
 
       <body>
-        {/* <Check /> */}
-        <Navigation />
         {children}
+        <Navigation />
       </body>
     </html>
   );

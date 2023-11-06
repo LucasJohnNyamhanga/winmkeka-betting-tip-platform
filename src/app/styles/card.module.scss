@@ -1,0 +1,255 @@
+@import "index";
+
+.container {
+  margin: 15px 10px;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: $answerBackground;
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
+  height: 60px;
+
+  .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .time {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 5px 15px;
+  }
+
+  .flag {
+    margin: 0px;
+    padding: 0px;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    width: 165px;
+    align-items: center;
+  }
+
+  .event {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 10px;
+    font-weight: 500;
+
+    .name {
+      padding: 3px 3px;
+    }
+  }
+
+  .Team {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+
+    .teamBoundary {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 450px;
+    }
+
+    .formListHome {
+      width: 150px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .formListAway {
+      width: 150px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .fiveresults {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      width: 25px;
+      height: 25px;
+      font-size: 13px;
+      margin-left: 3px;
+      .result {
+        margin: 0px;
+        padding: 0px;
+      }
+    }
+
+    .win {
+      border: 2px solid green;
+      color: green;
+    }
+
+    .lose {
+      border: 2px solid red;
+      color: red;
+    }
+
+    .draw {
+      border: 2px solid orange;
+      color: orange;
+    }
+
+    .home {
+      padding: 5px 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      .image {
+        margin: 5px;
+      }
+      .name {
+        margin: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .vs {
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .away {
+      padding: 5px 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      .image {
+        margin: 5px;
+      }
+      .name {
+        margin: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  .Prediction {
+    width: 150px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    flex-direction: column;
+    height: fit-content;
+    align-self: center;
+    .title {
+      width: 100%;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+
+      .time {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 5px 15px;
+      }
+
+      .flag {
+        width: 300px;
+      }
+
+      .event {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        font-size: 14px;
+        font-weight: 600;
+      }
+    }
+    .Team {
+      .teamBoundary {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+      .home {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .Prediction {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      align-self: center;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .Team {
+      .teamBoundary {
+        flex-direction: column;
+      }
+    }
+
+    .Prediction {
+      font-weight: 600;
+    }
+  }
+
+  @media only screen and (max-width: 570px) {
+    .Team {
+      .home {
+        flex-direction: column;
+
+        .vs {
+          font-size: 12px;
+        }
+      }
+    }
+    .Prediction {
+      margin: 15px;
+    }
+  }
+}

@@ -37,7 +37,7 @@ const Nav = () => {
                 <Image
                   alt=""
                   src={"/brainas.svg"}
-                  objectFit={"contain"}
+                  style={{ objectFit: "contain" }}
                   placeholder="blur"
                   blurDataURL={"/brainas.svg"}
                   width={40}

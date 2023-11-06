@@ -25,7 +25,7 @@ export const NavMobile = () => {
       <div className={Styles.innerContainerTop}>
         <div className={Styles.NavDetails}>
           <div className={Styles.topAdvatisment}>
-            <p>Uhakika Kufanikisha Maokoto</p>
+            <p>Odd Za Uhakika Wa Maokoto</p>
           </div>
         </div>
         <div className={Styles.NavHeader}>
@@ -36,7 +36,7 @@ export const NavMobile = () => {
                   <Image
                     alt=""
                     src={"/brainas.svg"}
-                    objectFit={"contain"}
+                    style={{ objectFit: "contain" }}
                     placeholder="blur"
                     blurDataURL={"/brainas.svg"}
                     width={40}
