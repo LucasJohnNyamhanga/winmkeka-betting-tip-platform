@@ -20,7 +20,6 @@ async function fetchData() {
   );
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
-  console.log(res);
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
@@ -32,7 +31,7 @@ async function fetchData() {
 export const getFixtures = cache(fetchData);
 
 ///Fetch Predictions
-export async function fetchPrediction(fixtureId: number) {
+async function fetchPrediction(fixtureId: number) {
   const res = await fetch(
     `https://api-football-v1.p.rapidapi.com/v3/predictions?fixture=${fixtureId}`,
     {
@@ -44,7 +43,6 @@ export async function fetchPrediction(fixtureId: number) {
   );
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
-  console.log(res);
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
@@ -52,3 +50,5 @@ export async function fetchPrediction(fixtureId: number) {
 
   return res.json();
 }
+
+export const getPrediction = cache(fetchPrediction);

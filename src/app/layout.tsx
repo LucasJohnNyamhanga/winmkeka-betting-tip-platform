@@ -4,15 +4,13 @@ import Navigation from "./components/Navigation";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "DataSoft Tanzania",
-  description:
-    "Get a technological solution from the ideas you have, evolved into full efficient working solutions, that are customized to meet your company’s organizational needs, highlight its core competencies, and further its success.",
+  title: "Sure Betting Tips",
+  description: "Get free sure betting tips with high odds.",
   openGraph: {
-    title: "DataSoft Tanzania",
-    description:
-      "Get a technological solution from the ideas you have, evolved into full efficient working solutions, that are customized to meet your company’s organizational needs, highlight its core competencies, and further its success.",
-    url: "https://www.datasoft.co.tz",
-    siteName: "DataSoft Tanzania",
+    title: "Sure Betting Tips",
+    description: "Get free sure betting tips with high odds.",
+    url: "https://www.surebettip.com",
+    siteName: "Sure Betting Tips",
     images: [
       {
         url: "/brainas.svg",
@@ -23,7 +21,7 @@ export const metadata: Metadata = {
         url: "/brainas.svg",
         width: 1800,
         height: 1600,
-        alt: "Datasoft Tanzania",
+        alt: "Sure Betting Tips",
       },
     ],
     locale: "en-US",
@@ -44,21 +42,21 @@ export const metadata: Metadata = {
     maximumScale: 1,
   },
   verification: {
-    google: "oN-oJx51JrDZi5ZxU2E682HRJ0dyDB2ZEe9bGQQy3Ds",
+    // google: "oN-oJx51JrDZi5ZxU2E682HRJ0dyDB2ZEe9bGQQy3Ds",
   },
   alternates: {
-    canonical: "https://www.datasoft.co.tz",
+    canonical: "https://www.surebettip.com",
     languages: {
-      "en-US": "https://www.datasoft.co.tz",
+      "en-US": "https://www.surebettip.com",
     },
     media: {
-      "only screen and (max-width: 600px)": "https://www.datasoft.co.tz",
+      "only screen and (max-width: 600px)": "https://www.surebettip.com",
     },
     types: {
-      "application/rss+xml": "https://www.datasoft.co.tz",
+      "application/rss+xml": "https://www.surebettip.com",
     },
   },
-  bookmarks: ["https://www.datasoft.co.tz"],
+  bookmarks: ["https://www.surebettip.com"],
   category: "technology",
   referrer: "origin-when-cross-origin",
   keywords: [

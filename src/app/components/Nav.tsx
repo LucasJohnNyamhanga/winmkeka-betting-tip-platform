@@ -26,7 +26,9 @@ const Nav = () => {
       <div className={Styles.innerContainerTop}>
         <div className={Styles.NavDetails}>
           <div className={Styles.topAdvatisment}>
-            <p>Tunakupatia Odd Za Uhakika Kufanikisha Maokoto Yako.</p>
+            <p>
+              Get free betting tips with high odds to maximize your returns.
+            </p>
           </div>
         </div>
 
@@ -44,13 +46,13 @@ const Nav = () => {
                   height={40}
                 />
               </div>
-              <div className={Styles.kkkt}>WinMkeka</div>
+              <div className={Styles.kkkt}>SureBetTip</div>
             </div>
             <div className={Styles.links}>
               <ul>
                 <div>
                   <li>
-                    Utabili Leo
+                    {`Today's Tips`}
                     <ul>
                       {betOptions.map((value, index) => (
                         <Link href={value.link} key={value.name}>
@@ -72,7 +74,7 @@ const Nav = () => {
                     //   "Biblia" == navActive ? Styles.active : Styles.links
                     // }
                     >
-                      Maokoto VIP
+                      VIP Sure Bets
                     </li>
                   </div>
                 </Link>

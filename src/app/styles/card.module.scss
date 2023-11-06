@@ -28,15 +28,15 @@
   .time {
     font-size: 14px;
     font-weight: 600;
-    margin: 5px 15px;
+    margin: 0px;
     text-wrap: nowrap;
-    min-width: 90px;
+    min-width: 80px;
   }
 
   .flag {
     margin: 0px;
     padding: 0px;
-    height: 60px;
+    height: fit-content;
     display: flex;
     flex-direction: row;
     width: 165px;
@@ -211,14 +211,8 @@
     }
     .Prediction {
       width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       align-self: center;
-      font-size: 18px;
-      font-weight: 600;
+      font-size: 16px;
     }
   }
 

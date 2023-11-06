@@ -76,7 +76,7 @@ export const MuiDrawer = ({
           <List>
             <Toggle
               list={betOptions}
-              name={"Utabili Leo"}
+              name={`Today's Tips`}
               action={handleMenuClick}
               activeName={activeName}
               setActiveName={handleSetActiveName}
@@ -92,7 +92,7 @@ export const MuiDrawer = ({
                   handleMenuClick("Mwanzo");
                 }}
               >
-                Maokoto VIP
+                VIP Sure Bets
               </div>
             </Link>
             <Divider />
@@ -100,7 +100,7 @@ export const MuiDrawer = ({
           <ListItemText primary={`ACCOUNT`} />
           <Divider />
           <List>
-            {true ? (
+            {false ? (
               <>
                 <Link href={"/Admin"}>
                   <div
@@ -143,7 +143,7 @@ export const MuiDrawer = ({
                     handleMenuClick("");
                   }}
                 >
-                  Ingia
+                  Register
                 </div>
                 <Divider />
               </>

@@ -1,7 +1,7 @@
 import styles from "../styles/card.module.scss";
 import Image from "next/image";
 import { customTruncate } from "../Engine/functions";
-import { fetchPrediction } from "../Engine/fetchRequest";
+import { getPrediction } from "../Engine/fetchRequest";
 
 type leagueType = {
   fixtureId: number;
@@ -16,7 +16,7 @@ type leagueType = {
 };
 
 async function Card(league: leagueType) {
-  const data = await fetchPrediction(league.fixtureId);
+  const data = await getPrediction(league.fixtureId);
   console.log(data.response[0].predictions);
   const formHome = data.response[0].teams.home.league.form;
   const teamFormHome =
@@ -122,7 +122,9 @@ async function Card(league: leagueType) {
         </div>
         <div className={styles.Prediction}>
           {`${customTruncate(data.response[0].predictions.winner.name, 10)} ${
-            data.response[0].predictions.win_or_draw ? "Win or Draw" : "Win"
+            data.response[0].predictions.win_or_draw
+              ? " to Win or Draw"
+              : " to Win"
           } ${
             data.response[0].predictions.under_over
               ? "and " + data.response[0].predictions.under_over + " goals"

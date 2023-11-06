@@ -7,12 +7,18 @@
   .main {
     width: 100%;
     max-width: 1200px;
-    margin-top: 95px;
+    margin-top: 110px;
+
+    .header {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0px 10px 10px 10px;
+    }
   }
 
   @media only screen and (max-width: 958px) {
     .main {
-      margin-top: 105px;
+      margin-top: 110px;
     }
   }
 }

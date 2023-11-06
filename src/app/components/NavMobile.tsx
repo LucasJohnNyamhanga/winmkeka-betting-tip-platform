@@ -25,7 +25,7 @@ export const NavMobile = () => {
       <div className={Styles.innerContainerTop}>
         <div className={Styles.NavDetails}>
           <div className={Styles.topAdvatisment}>
-            <p>Odd Za Uhakika Wa Maokoto</p>
+            <p>Free betting tips with high odds.</p>
           </div>
         </div>
         <div className={Styles.NavHeader}>
@@ -43,7 +43,7 @@ export const NavMobile = () => {
                     height={40}
                   />
                 </div>
-                <div className={Styles.shule}>WinMkeka</div>
+                <div className={Styles.shule}>SureBetTip</div>
               </div>
             </Link>
             <div className={Styles.links}></div>
