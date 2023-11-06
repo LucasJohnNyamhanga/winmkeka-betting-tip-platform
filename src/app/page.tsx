@@ -32,7 +32,7 @@ type ligiType = {
 
 export default async function Home() {
   const data = await getFixtures();
-  const dataActive = data.response.slice(0, 1);
+  const dataActive = data.response.slice(0, 15);
 
   const getTime = (date: string) => {
     let muda = new Date(date);
