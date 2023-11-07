@@ -131,7 +131,7 @@ async function Card(league: leagueType) {
           }`}
           {}
         </div>
-        <div className={styles.details}>Match Details</div>
+        <div className={styles.details}>More Details</div>
       </div>
     </div>
   );
