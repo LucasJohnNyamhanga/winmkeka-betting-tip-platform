@@ -173,6 +173,16 @@
     font-weight: 600;
   }
 
+  .details {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: $lightblue;
+    cursor: pointer;
+  }
+
   @media only screen and (max-width: 1200px) {
     flex-direction: column;
     height: fit-content;
@@ -180,7 +190,7 @@
     .title {
       width: 100%;
       justify-content: space-between;
-      flex-direction: row-reverse;
+      flex-direction: row;
 
       .flag {
         width: 300px;
@@ -213,6 +223,14 @@
       width: 100%;
       align-self: center;
       font-size: 16px;
+    }
+    .details {
+      width: 200px;
+      justify-content: center;
+      align-items: center;
+      border-top: 1px solid $lightblue;
+      border-bottom: 1px solid $lightblue;
+      padding: 10px;
     }
   }
 

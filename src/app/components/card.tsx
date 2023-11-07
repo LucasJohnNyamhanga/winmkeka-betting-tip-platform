@@ -30,7 +30,6 @@ async function Card(league: leagueType) {
     <div className={styles.container}>
       <div className={styles.card}>
         <div className={styles.title}>
-          <div className={styles.time}>{league.time}</div>
           <div className={styles.flag}>
             <Image
               alt=""
@@ -132,6 +131,7 @@ async function Card(league: leagueType) {
           }`}
           {}
         </div>
+        <div className={styles.details}>Match Details</div>
       </div>
     </div>
   );
