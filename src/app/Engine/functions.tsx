@@ -1,5 +1,9 @@
 export function customTruncate(str: string, size: number) {
-  return str.length > size ? str.slice(0, size) + "..." : str;
+  return typeof str === "string"
+    ? str.length > size
+      ? str.slice(0, size) + "..."
+      : str
+    : "No Team";
 }
 
 export const getTime = (date: string) => {
