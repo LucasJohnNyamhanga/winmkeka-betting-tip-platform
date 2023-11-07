@@ -34,7 +34,7 @@ type ligiType = {
 export default async function Home() {
   const data = await getFixtures();
   console.log(data.response);
-  const dataActive = data.response.slice(0, 15);
+  const dataActive = data.response.slice(20, 35);
 
   return (
     <div className={styles.container}>
