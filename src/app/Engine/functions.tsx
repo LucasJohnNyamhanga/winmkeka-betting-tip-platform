@@ -9,18 +9,18 @@ export function customTruncate(str: string, size: number) {
 export const getTime = (date: string) => {
   let muda = new Date(date);
   var GMTtime =
-    muda.getUTCMonth() +
+    muda.getMonth() +
     1 +
     "/" +
-    muda.getUTCDate() +
+    muda.getDate() +
     "/" +
-    muda.getUTCFullYear() +
+    muda.getFullYear() +
     " " +
-    muda.getUTCHours() +
+    muda.getHours() +
     ":" +
-    muda.getUTCMinutes() +
+    muda.getMinutes() +
     ":" +
-    muda.getUTCSeconds() +
+    muda.getSeconds() +
     " GMT";
   let myTime = new Date(GMTtime).toLocaleTimeString("en-US", {
     hour: "2-digit",
