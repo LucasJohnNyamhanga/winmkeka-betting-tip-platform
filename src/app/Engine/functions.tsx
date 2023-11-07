@@ -22,7 +22,8 @@ export const getTime = (date: string) => {
     ":" +
     muda.getSeconds() +
     " GMT";
-  let myTime = new Date(GMTtime).toLocaleTimeString("en-US", {
+  let myTime = new Date(GMTtime).toLocaleString("en-GB", {
+    timeZone: "UTC",
     hour: "2-digit",
     minute: "2-digit",
   });
