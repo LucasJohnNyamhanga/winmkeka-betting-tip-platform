@@ -33,3 +33,10 @@ export const getTime = (date: string) => {
 export const getTodayDate = () => {
   return new Date().toDateString();
 };
+
+export function compareByPriorty(
+  compareA: { priority: number },
+  compareB: { priority: number }
+) {
+  return compareA.priority - compareB.priority;
+}
