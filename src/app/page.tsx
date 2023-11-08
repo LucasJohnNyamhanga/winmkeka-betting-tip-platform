@@ -60,7 +60,7 @@ export default async function Home() {
 
   console.log(dataFixtureByCountry);
 
-  const dataActive = dataFixtureByCountry.slice(0, 3);
+  const dataActive = dataFixtureByCountry.slice(0, 2);
 
   return (
     <div className={styles.container}>
