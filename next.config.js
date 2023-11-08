@@ -1,7 +1,7 @@
 
 const nextConfig = {
     images: {
-		domains: ['*', 'media-4.api-sports.io', '127.0.0.1'],
+		remotePatterns: ['*', 'media-4.api-sports.io', '127.0.0.1'],
 	}
 }
 
