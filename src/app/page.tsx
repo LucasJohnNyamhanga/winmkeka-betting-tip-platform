@@ -58,10 +58,8 @@ export default async function Home() {
     });
   });
 
-  console.log(dataFixtureByCountry);
-
-  const dataActive = dataFixtureByCountry.slice(0, 2);
-
+  const dataActive = dataFixtureByCountry.slice(0, 3);
+  console.log(dataActive);
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -75,23 +73,20 @@ export default async function Home() {
           ) => (
             <>
               <div className={styles.header}>{match.country}</div>
-              {match.fixture.map(
-                (res) =>
-                  typeof res.fixture.id == "number" && (
-                    <Card
-                      key={res.fixture.id}
-                      fixtureId={res.fixture.id}
-                      time={getTime(res.fixture.date)}
-                      leagueName={res.league.name}
-                      country={res.league.country}
-                      countryFlag={res.league.flag}
-                      homeTeam={res.teams.home.name}
-                      awayTeam={res.teams.away.name}
-                      homeTeamLogo={res.teams.home.logo}
-                      awayTeamLogo={res.teams.away.logo}
-                    />
-                  )
-              )}
+              {match.fixture.map((res) => (
+                <Card
+                  key={res.fixture.id}
+                  fixtureId={res.fixture.id}
+                  time={getTime(res.fixture.date)}
+                  leagueName={res.league.name}
+                  country={res.league.country}
+                  countryFlag={res.league.flag}
+                  homeTeam={res.teams.home.name}
+                  awayTeam={res.teams.away.name}
+                  homeTeamLogo={res.teams.home.logo}
+                  awayTeamLogo={res.teams.away.logo}
+                />
+              ))}
             </>
           )
         )}
