@@ -16,9 +16,9 @@ type leagueType = {
 };
 
 async function Card(league: leagueType) {
-  if (typeof league.fixtureId === "number") {
-    const data = await getPrediction(league.fixtureId);
-    console.log(data.response[0].predictions);
+  const data = await getPrediction(league.fixtureId);
+  console.log(data.response[0].predictions);
+  if (data.response[0].predictions.winner.id != null) {
     const formHome = data.response[0].teams.home.league.form;
     const teamFormHome =
       typeof formHome == "string" ? formHome.split("").slice(-5) : [];
