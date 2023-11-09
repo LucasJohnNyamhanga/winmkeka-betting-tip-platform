@@ -34,6 +34,11 @@ export const getTodayDate = () => {
   return new Date().toDateString();
 };
 
+export const getSimpleTodayDate = () => {
+  var leo = new Date();
+  return leo.toISOString().slice(0, 10);
+};
+
 export function compareByPriorty(
   compareA: { priority: number },
   compareB: { priority: number }
