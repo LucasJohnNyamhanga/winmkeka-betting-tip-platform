@@ -120,8 +120,6 @@ async function Card(league: leagueType) {
             ? `Draw`
             : parseInt(league.data.prediction.prob_HW_AW) > 65
             ? `Home or Away to win`
-            : parseInt(league.data.prediction.prob_bts) > 60
-            ? `Both Team To Score`
             : parseInt(league.data.prediction.prob_O_1) > 60
             ? `Over 1.5 goals`
             : parseInt(league.data.prediction.prob_O) > 60
@@ -134,6 +132,8 @@ async function Card(league: leagueType) {
             ? `Under 2.5 goals`
             : parseInt(league.data.prediction.prob_U_1) > 60
             ? `Under 1.5 goals`
+            : parseInt(league.data.prediction.prob_bts) > 60
+            ? `Both Team To Score`
             : parseInt(league.data.prediction.prob_ots) > 60
             ? `Only one Team to Score`
             : `Home or Away to win`}
