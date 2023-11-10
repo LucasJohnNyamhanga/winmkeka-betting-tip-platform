@@ -4,6 +4,7 @@ import Card from "./components/card";
 import {
   compareByPriorty,
   emptyLogo,
+  getRandomNumber,
   getSimpleTodayDate,
   getTodayDate,
 } from "./Engine/functions";
@@ -103,9 +104,6 @@ export default async function Home() {
     });
   });
 
-  const dataActive = dataFixtureByCountry.slice(0, 3);
-  console.log(countriesFixture);
-
   // const getFixture = (id: number) => {
   //   console.log(id);
   // };
@@ -123,8 +121,6 @@ export default async function Home() {
                 alt=""
                 src={match.flag == "" ? emptyLogo : match.flag}
                 style={{ objectFit: "contain" }}
-                placeholder="blur"
-                blurDataURL={"/brainas.svg"}
                 width={35}
                 height={35}
               />
@@ -132,7 +128,7 @@ export default async function Home() {
             </div>
             {match.fixture.map((data, index) => (
               <Card
-                key={parseInt(data.fixture.match_id) + index}
+                key={parseInt(data.fixture.match_id) + getRandomNumber()}
                 data={data}
                 time={data.fixture.match_date}
                 leagueName={data.fixture.league_name}

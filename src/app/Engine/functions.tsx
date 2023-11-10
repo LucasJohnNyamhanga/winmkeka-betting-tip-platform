@@ -46,5 +46,9 @@ export function compareByPriorty(
   return compareA.priority - compareB.priority;
 }
 
+export function getRandomNumber() {
+  return Math.floor(Math.random() * 99999);
+}
+
 export const emptyLogo = `https://apiv3.apifootball.com/badges/27845_stade-dabidjan.jpg`;
 export const apiKey = `283529ed38e099fdcddd531ccc86f9892fad0f7f4e032dc7c0b8a0c640a946cc`;
