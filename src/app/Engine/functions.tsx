@@ -47,3 +47,4 @@ export function compareByPriorty(
 }
 
 export const emptyLogo = `https://apiv3.apifootball.com/badges/27845_stade-dabidjan.jpg`;
+export const apiKey = `283529ed38e099fdcddd531ccc86f9892fad0f7f4e032dc7c0b8a0c640a946cc`;
