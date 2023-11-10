@@ -42,7 +42,9 @@ async function Card(league: leagueType) {
                   height={30}
                 />
               </div>
-              {customTruncate(league.homeTeam, 15)}
+              <div className={styles.nameDisplay}>
+                {customTruncate(league.homeTeam, 15)}
+              </div>
             </div>
             <div className={styles.formListHome}>
               {league.data.fixture.match_hometeam_ft_score}
@@ -62,7 +64,7 @@ async function Card(league: leagueType) {
                   height={30}
                 />
               </div>
-              <div className={styles.name}>
+              <div className={styles.nameDisplay}>
                 {customTruncate(league.awayTeam, 15)}
               </div>
             </div>
