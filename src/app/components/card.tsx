@@ -75,17 +75,20 @@ async function Card(league: leagueType) {
         </div>
         <div className={styles.Prediction}>
           {parseInt(league.data.prediction.prob_HW) > 65
-            ? `Home to win`
+            ? `${customTruncate(league.homeTeam, 15)} to win`
             : parseInt(league.data.prediction.prob_HW_D) > 75
-            ? `Home to Win or Draw`
+            ? `${customTruncate(league.homeTeam, 15)} to Win or Draw`
             : parseInt(league.data.prediction.prob_AW_D) > 75
-            ? `Away to Win or Draw`
+            ? `${customTruncate(league.awayTeam, 15)} to Win or Draw`
             : parseInt(league.data.prediction.prob_AW) > 65
-            ? `Away to win`
+            ? `${customTruncate(league.awayTeam, 15)} to win`
             : parseInt(league.data.prediction.prob_D) > 65
             ? `Draw`
             : parseInt(league.data.prediction.prob_HW_AW) > 65
-            ? `Home or Away to win`
+            ? `${customTruncate(league.homeTeam, 15)} or ${customTruncate(
+                league.awayTeam,
+                15
+              )} to win`
             : parseInt(league.data.prediction.prob_O_1) > 60
             ? `Over 1.5 goals`
             : parseInt(league.data.prediction.prob_O) > 60
@@ -102,7 +105,10 @@ async function Card(league: leagueType) {
             ? `Both Team To Score`
             : parseInt(league.data.prediction.prob_ots) > 60
             ? `Only one Team to Score`
-            : `Home or Away to win`}
+            : `${customTruncate(league.homeTeam, 15)} or ${customTruncate(
+                league.awayTeam,
+                15
+              )} to win`}
         </div>
         <div className={styles.details}>More Details</div>
       </div>
