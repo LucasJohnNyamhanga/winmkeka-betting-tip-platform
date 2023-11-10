@@ -38,8 +38,6 @@ async function Card(league: leagueType) {
                     league.homeTeamLogo == "" ? emptyLogo : league.homeTeamLogo
                   }
                   style={{ objectFit: "contain" }}
-                  placeholder="blur"
-                  blurDataURL={"/brainas.svg"}
                   width={30}
                   height={30}
                 />
@@ -52,21 +50,21 @@ async function Card(league: leagueType) {
           </div>
           <div className={styles.vs}>{` vs `}</div>
           <div className={styles.away}>
-            <div className={styles.image}>
-              <Image
-                alt=""
-                src={
-                  league.awayTeamLogo == "" ? emptyLogo : league.awayTeamLogo
-                }
-                style={{ objectFit: "contain" }}
-                placeholder="blur"
-                blurDataURL={"/brainas.svg"}
-                width={30}
-                height={30}
-              />
-            </div>
             <div className={styles.name}>
-              {customTruncate(league.awayTeam, 15)}
+              <div className={styles.image}>
+                <Image
+                  alt=""
+                  src={
+                    league.awayTeamLogo == "" ? emptyLogo : league.awayTeamLogo
+                  }
+                  style={{ objectFit: "contain" }}
+                  width={30}
+                  height={30}
+                />
+              </div>
+              <div className={styles.name}>
+                {customTruncate(league.awayTeam, 15)}
+              </div>
             </div>
             <div className={styles.formListAway}>
               {league.data.fixture.match_awayteam_ft_score}
