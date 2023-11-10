@@ -7,7 +7,7 @@
 .card {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   border-radius: 5px;
   padding: 10px;
@@ -48,8 +48,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    font-size: 10px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: 600;
 
     .name {
       padding: 3px 3px;
@@ -64,77 +64,47 @@
     font-size: 16px;
     font-weight: 600;
 
-    .teamBoundary {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      width: 450px;
-    }
-
     .formListHome {
-      width: 150px;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    .formListAway {
-      width: 150px;
+      width: fit-content;
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
     }
 
-    .fiveresults {
+    .formListAway {
+      width: fit-content;
       display: flex;
       flex-direction: row;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
-      border-radius: 5px;
-      width: 25px;
-      height: 25px;
-      font-size: 13px;
-      margin-left: 3px;
-      .result {
-        margin: 0px;
-        padding: 0px;
-      }
-    }
-
-    .win {
-      border: 2px solid green;
-      color: green;
-    }
-
-    .lose {
-      border: 2px solid red;
-      color: red;
-    }
-
-    .draw {
-      border: 2px solid orange;
-      color: orange;
     }
 
     .home {
-      padding: 5px 10px;
+      margin-right: 10px;
+      margin-left: 10px;
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
 
       .image {
-        margin: 5px;
+        margin-right: 5px;
+        margin-left: 5px;
       }
       .name {
-        margin: 5px;
+        margin-right: 5px;
+        margin-left: 5px;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
+      }
+
+      .formListHome {
+        display: flex;
+        align-self: center;
+        margin: 0px 10px 0px 10px;
       }
     }
     .vs {
@@ -142,27 +112,36 @@
       font-weight: 600;
     }
     .away {
-      padding: 5px 10px;
+      margin-right: 10px;
+      margin-left: 10px;
       display: flex;
-      flex-direction: row;
+      flex-direction: row-reverse;
       justify-content: center;
       align-items: center;
 
       .image {
-        margin: 5px;
+        margin-right: 5px;
+        margin-left: 5px;
       }
       .name {
-        margin: 5px;
+        margin-right: 5px;
+        margin-left: 5px;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
       }
+
+      .formListAway {
+        display: flex;
+        align-self: center;
+        margin: 0px 10px 0px 10px;
+      }
     }
   }
 
   .Prediction {
-    width: 150px;
+    width: fit-content;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -174,17 +153,19 @@
   }
 
   .details {
+    width: fit-content;
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin: 10px;
+    padding: 10px 15px;
     font-size: 14px;
     font-weight: 600;
     color: $lightblue;
     cursor: pointer;
+    align-self: flex-end;
   }
 
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (max-width: 980px) {
     flex-direction: column;
     height: fit-content;
     align-self: center;
@@ -192,6 +173,7 @@
       width: 100%;
       justify-content: space-between;
       flex-direction: row;
+      margin-bottom: 5px;
 
       .flag {
         width: 300px;
@@ -207,13 +189,6 @@
       }
     }
     .Team {
-      .teamBoundary {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-      }
       .home {
         flex-direction: row;
         justify-content: center;
@@ -224,6 +199,7 @@
       width: 100%;
       align-self: center;
       font-size: 16px;
+      margin: 10px;
     }
     .details {
       width: 200px;
@@ -231,42 +207,50 @@
       align-items: center;
       border-top: 2px solid $lightblue;
       border-bottom: 2px solid $lightblue;
-      padding: 10px;
-    }
-  }
-
-  @media only screen and (max-width: 800px) {
-    .Team {
-      .teamBoundary {
-        flex-direction: column;
-      }
-
-      .formListHome {
-        justify-content: center;
-      }
-
-      .formListAway {
-        justify-content: center;
-      }
-    }
-
-    .Prediction {
-      font-weight: 600;
+      padding: 8px;
+      align-self: center;
+      font-size: 14px;
     }
   }
 
   @media only screen and (max-width: 570px) {
+    .event {
+      .name {
+        font-size: 10px;
+      }
+    }
     .Team {
-      .home {
-        flex-direction: column;
+      flex-direction: column;
 
-        .vs {
-          font-size: 12px;
-        }
+      .home {
+        flex-direction: row;
+        font-size: 12px;
+      }
+
+      .vs {
+        font-size: 10px;
+      }
+
+      .away {
+        flex-direction: row;
+        font-size: 12px;
       }
     }
     .Prediction {
-      margin: 15px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .details {
+      width: 150px;
+      justify-content: center;
+      align-items: center;
+      border-top: 2px solid $lightblue;
+      border-bottom: 2px solid $lightblue;
+      padding: 7px;
+      align-self: center;
+      font-size: 12px;
+      font-weight: 500;
     }
   }
 }

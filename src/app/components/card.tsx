@@ -1,6 +1,6 @@
 import styles from "../styles/card.module.scss";
 import Image from "next/image";
-import { customTruncate } from "../Engine/functions";
+import { customTruncate, emptyLogo } from "../Engine/functions";
 import { dataMainType } from "../Engine/type";
 
 type leagueType = {
@@ -16,91 +16,57 @@ type leagueType = {
 };
 
 async function Card(league: leagueType) {
-  const emptyLogo = `https://apiv3.apifootball.com/badges/27845_stade-dabidjan.jpg`;
-
   return (
     <div className={styles.container}>
       <div className={styles.card}>
         <div className={styles.title}>
           <div className={styles.flag}>
-            <Image
-              alt=""
-              src={league.countryFlag == "" ? emptyLogo : league.countryFlag}
-              style={{ objectFit: "contain" }}
-              placeholder="blur"
-              blurDataURL={"/brainas.svg"}
-              width={40}
-              height={40}
-            />
             <div className={styles.event}>
-              <div className={styles.name}>{league.country}</div>
               <div className={styles.name}>
-                {customTruncate(league.leagueName, 15)}
+                {customTruncate(league.leagueName, 18)}
               </div>
             </div>
           </div>
         </div>
         <div className={styles.Team}>
           <div className={styles.home}>
+            <div className={styles.name}>
+              <div className={styles.image}>
+                <Image
+                  alt=""
+                  src={
+                    league.homeTeamLogo == "" ? emptyLogo : league.homeTeamLogo
+                  }
+                  style={{ objectFit: "contain" }}
+                  placeholder="blur"
+                  blurDataURL={"/brainas.svg"}
+                  width={30}
+                  height={30}
+                />
+              </div>
+              {customTruncate(league.homeTeam, 15)}
+            </div>
             <div className={styles.formListHome}>
-              {/* {teamFormHome.map((form: string, index: number) => (
-                    <div
-                      key={index}
-                      className={`${styles.fiveresults} ${
-                        form === "W"
-                          ? styles.win
-                          : form === "D"
-                          ? styles.draw
-                          : styles.lose
-                      }`}
-                    >
-                      <div className={styles.result}>{form}</div>
-                    </div>
-                  ))} */}
               {league.data.fixture.match_hometeam_ft_score}
             </div>
-
-            <div className={styles.teamBoundary}>
-              <div className={styles.name}>
-                <div className={styles.image}>
-                  <Image
-                    alt=""
-                    src={
-                      league.homeTeamLogo == ""
-                        ? emptyLogo
-                        : league.homeTeamLogo
-                    }
-                    style={{ objectFit: "contain" }}
-                    placeholder="blur"
-                    blurDataURL={"/brainas.svg"}
-                    width={40}
-                    height={40}
-                  />
-                </div>
-                {customTruncate(league.homeTeam, 15)}
-              </div>
-
-              <div className={styles.vs}>{` vs `}</div>
-              <div className={styles.away}>
-                <div className={styles.name}>
-                  {customTruncate(league.awayTeam, 15)}
-                </div>
-                <div className={styles.image}>
-                  <Image
-                    alt=""
-                    src={
-                      league.awayTeamLogo == ""
-                        ? emptyLogo
-                        : league.awayTeamLogo
-                    }
-                    style={{ objectFit: "contain" }}
-                    placeholder="blur"
-                    blurDataURL={"/brainas.svg"}
-                    width={40}
-                    height={40}
-                  />
-                </div>
-              </div>
+          </div>
+          <div className={styles.vs}>{` vs `}</div>
+          <div className={styles.away}>
+            <div className={styles.image}>
+              <Image
+                alt=""
+                src={
+                  league.awayTeamLogo == "" ? emptyLogo : league.awayTeamLogo
+                }
+                style={{ objectFit: "contain" }}
+                placeholder="blur"
+                blurDataURL={"/brainas.svg"}
+                width={30}
+                height={30}
+              />
+            </div>
+            <div className={styles.name}>
+              {customTruncate(league.awayTeam, 15)}
             </div>
             <div className={styles.formListAway}>
               {league.data.fixture.match_awayteam_ft_score}
@@ -142,12 +108,6 @@ async function Card(league: leagueType) {
       </div>
     </div>
   );
-  // } else {
-  //   return <></>;
-  // }
-  // } else {
-  //   return <></>;
-  // }
 }
 
 export default Card;

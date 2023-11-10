@@ -3,11 +3,12 @@ import { getFixtures, getPrediction } from "./Engine/fetchRequest";
 import Card from "./components/card";
 import {
   compareByPriorty,
+  emptyLogo,
   getSimpleTodayDate,
-  getTime,
   getTodayDate,
 } from "./Engine/functions";
 import { dataMainType, fixtureType, predictionType } from "./Engine/type";
+import Image from "next/image";
 
 export default async function Home() {
   const dataPrediction: predictionType[] = await getPrediction(
@@ -36,20 +37,27 @@ export default async function Home() {
 
   //console.log(dataMain);
 
-  let countriesFixture: { name: string; priority: number }[] = [];
+  let countriesFixture: { name: string; flag: string; priority: number }[] = [];
   let priorityCountries: { name: string; priority: number }[] = [
     { name: "Tanzania", priority: 1 },
     { name: "eurocups", priority: 2 },
-    { name: "England", priority: 2 },
-    { name: "Congo-DR", priority: 4 },
+    { name: "England", priority: 1 },
+    { name: "Spain", priority: 2 },
     { name: "Italy", priority: 2 },
-    { name: "Malawi", priority: 4 },
-    { name: "Zambia", priority: 4 },
+    { name: "France", priority: 2 },
+    { name: "Belgium", priority: 3 },
     { name: "Egypt", priority: 4 },
-    { name: "Ghana", priority: 4 },
+    { name: "Germany", priority: 2 },
     { name: "Saudi Arabia", priority: 3 },
-    { name: "Egypt", priority: 4 },
-    { name: "Ivory Coast", priority: 3 },
+    { name: "South Africa", priority: 4 },
+    { name: "Portugal", priority: 2 },
+    { name: "Turkey", priority: 3 },
+    { name: "Ghana", priority: 4 },
+    { name: "Burundi", priority: 4 },
+    { name: "Algeria", priority: 4 },
+    { name: "Kenya", priority: 4 },
+    { name: "Morocco", priority: 3 },
+    { name: "Ivory Coast", priority: 4 },
   ];
 
   dataMain.map((data) => {
@@ -68,6 +76,7 @@ export default async function Home() {
 
       countriesFixture.push({
         name: data.fixture.country_name,
+        flag: data.fixture.country_logo,
         priority: priorityAssigned,
       });
     }
@@ -76,7 +85,11 @@ export default async function Home() {
   countriesFixture.sort(compareByPriorty);
   //console.log(countriesFixture);
 
-  let dataFixtureByCountry: { country: string; fixture: dataMainType[] }[] = [];
+  let dataFixtureByCountry: {
+    country: string;
+    flag: string;
+    fixture: dataMainType[];
+  }[] = [];
 
   countriesFixture.map((contry) => {
     let fixtureByCountry = dataMain.filter(function (data) {
@@ -85,12 +98,13 @@ export default async function Home() {
 
     dataFixtureByCountry.push({
       country: contry.name,
+      flag: contry.flag,
       fixture: fixtureByCountry,
     });
   });
 
   const dataActive = dataFixtureByCountry.slice(0, 3);
-  console.log(dataActive);
+  console.log(countriesFixture);
 
   // const getFixture = (id: number) => {
   //   console.log(id);
@@ -104,7 +118,18 @@ export default async function Home() {
         >{`Free Betting Tips For ${getTodayDate()}`}</div>
         {dataFixtureByCountry.map((match) => (
           <>
-            <div className={styles.header}>{match.country}</div>
+            <div className={styles.headerTopImage}>
+              <Image
+                alt=""
+                src={match.flag == "" ? emptyLogo : match.flag}
+                style={{ objectFit: "contain" }}
+                placeholder="blur"
+                blurDataURL={"/brainas.svg"}
+                width={35}
+                height={35}
+              />
+              <div className={styles.text}>{match.country}</div>
+            </div>
             {match.fixture.map((data, index) => (
               <Card
                 key={parseInt(data.fixture.match_id) + index}

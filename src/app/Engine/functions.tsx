@@ -45,3 +45,5 @@ export function compareByPriorty(
 ) {
   return compareA.priority - compareB.priority;
 }
+
+export const emptyLogo = `https://apiv3.apifootball.com/badges/27845_stade-dabidjan.jpg`;
