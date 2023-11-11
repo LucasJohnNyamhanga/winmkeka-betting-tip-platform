@@ -1,7 +1,11 @@
-
+/** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-		domains: ['*', 'apiv3.apifootball.com', 'www.surebettip.com'],
+      remotePatterns: [
+        {
+          hostname: 'apiv3.apifootball.com',
+        },
+    ],
 	}
 }
 
