@@ -4,8 +4,9 @@ const nextConfig = {
       remotePatterns: [
         {
           hostname: 'apiv3.apifootball.com',
-        },
-    ],
+			},
+		],
+		domains: ["apiv3.apifootball.com","surebettip.com", "*"],
 	}
 }
 
