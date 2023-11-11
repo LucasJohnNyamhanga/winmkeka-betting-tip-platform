@@ -32,7 +32,7 @@ async function Card(league: leagueType) {
           <div className={styles.home}>
             <div className={styles.name}>
               <div className={styles.image}>
-                <Image
+                {/* <Image
                   alt=""
                   src={
                     league.homeTeamLogo == "" ? emptyLogo : league.homeTeamLogo
@@ -40,6 +40,13 @@ async function Card(league: leagueType) {
                   style={{ objectFit: "contain" }}
                   width={30}
                   height={30}
+                /> */}
+
+                <img
+                  style={{ objectFit: "contain", width: 30, height: 30 }}
+                  src={
+                    league.homeTeamLogo == "" ? emptyLogo : league.homeTeamLogo
+                  }
                 />
               </div>
               <div className={styles.nameDisplay}>
@@ -54,14 +61,19 @@ async function Card(league: leagueType) {
           <div className={styles.away}>
             <div className={styles.name}>
               <div className={styles.image}>
-                <Image
+                {/* <Image
                   alt=""
                   src={
                     league.awayTeamLogo == "" ? emptyLogo : league.awayTeamLogo
                   }
-                  style={{ objectFit: "contain" }}
                   width={30}
                   height={30}
+                /> */}
+                <img
+                  style={{ objectFit: "contain", width: 30, height: 30 }}
+                  src={
+                    league.awayTeamLogo == "" ? emptyLogo : league.awayTeamLogo
+                  }
                 />
               </div>
               <div className={styles.nameDisplay}>
