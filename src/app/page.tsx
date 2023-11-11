@@ -13,7 +13,6 @@ import Image from "next/image";
 export default async function Home() {
   const dataPrediction: predictionType[] = await getPrediction();
   const dataFixtures: fixtureType[] = await getFixtures();
-  //console.log(dataPrediction);
 
   let dataMain: dataMainType[] = [];
 

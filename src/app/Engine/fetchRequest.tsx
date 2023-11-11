@@ -1,9 +1,10 @@
 import { cache } from "react";
-import { apiKey } from "./functions";
+import { apiKey, getSimpleTodayDate } from "./functions";
 
 async function fetchData() {
+  let today = getSimpleTodayDate();
   const res = await fetch(
-    `https://apiv3.apifootball.com/?action=get_events&from=${getSimpleTodayDate()}&to=${getSimpleTodayDate()}&APIkey=${apiKey}`,
+    `https://apiv3.apifootball.com/?action=get_events&from=${today}&to=${today}&APIkey=${apiKey}`,
     { next: { revalidate: 900 } }
   );
   // The return value is *not* serialized
@@ -20,8 +21,9 @@ export const getFixtures = cache(fetchData);
 
 ///Fetch Predictions
 async function fetchPrediction() {
+  let today = getSimpleTodayDate();
   const res = await fetch(
-    `https://apiv3.apifootball.com/?action=get_predictions&from=${getSimpleTodayDate()}&to=${getSimpleTodayDate()}&APIkey=${apiKey}`,
+    `https://apiv3.apifootball.com/?action=get_predictions&from=${today}&to=${today}&APIkey=${apiKey}`,
     { next: { revalidate: 900 } }
   );
   // The return value is *not* serialized
