@@ -92,13 +92,13 @@ export default async function Home() {
     });
   });
 
-  const leaguesByCountries: { name: string; country: string }[] = [
-    { name: "Premier League", country: "England" },
-    { name: "Bundesliga", country: "Ger" },
-    { name: "Serie A", country: "Itary" },
-    { name: "La Liga", country: "" },
-    { name: "Süper Lig", country: "" },
-    { name: "Ligue 1", country: "" },
+  const leaguesByCountries: string[] = [
+    "Premier League",
+    "Bundesliga",
+    "Serie A",
+    "La Liga",
+    "Süper Lig",
+    "Ligue 1",
   ];
 
   let dataFixtureByCountrySorted: {
@@ -109,32 +109,23 @@ export default async function Home() {
 
   dataFixtureByCountry.forEach((match) => {
     let target = match.fixture;
-    let vilivyomo: dataMainType[] = [];
-    console.log(match.country);
-
-    match.fixture.forEach((league) => {
-      console.log(league.fixture.country_name);
-      leaguesByCountries.forEach((ligi) => {
-        if (
-          ligi.name == league.fixture.league_name &&
-          ligi.country == league.fixture.country_name
-        ) {
-          let index = match.fixture.findIndex(
-            (mechi) => mechi.fixture.league_name == league.fixture.league_name
-          );
-          vilivyomo.push(league);
-          target.splice(index, 1);
-        }
-      });
+    let found: dataMainType[] = [];
+    match.fixture.map((mechi) => {
+      console.log(mechi.fixture.league_name);
+      if (leaguesByCountries.includes(mechi.fixture.league_name)) {
+        let index = match.fixture.indexOf(mechi);
+        found.push(mechi);
+        target.splice(index, 1);
+      }
     });
-
-    console.log(vilivyomo[0]);
-    let fixtureSorted = [...vilivyomo, ...target];
+    // console.log(target);
+    // console.log(found);
+    target = [...found, ...target];
 
     dataFixtureByCountrySorted.push({
       country: match.country,
       flag: match.flag,
-      fixture: fixtureSorted,
+      fixture: target,
     });
   });
 
