@@ -151,10 +151,10 @@ export default async function Home() {
                 alt=""
                 src={match.flag == "" ? emptyLogo : match.flag}
                 style={{ objectFit: "contain" }}
-                width={30}
-                height={30}
+                width={25}
+                height={25}
                 unoptimized
-                quality={20}
+                quality={10}
                 priority={false}
               />
               <div className={styles.text}>{match.country}</div>

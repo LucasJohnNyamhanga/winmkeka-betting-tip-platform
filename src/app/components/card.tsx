@@ -38,11 +38,11 @@ async function Card(league: leagueType) {
                     league.homeTeamLogo == "" ? emptyLogo : league.homeTeamLogo
                   }
                   style={{ objectFit: "contain" }}
-                  width={30}
-                  height={30}
+                  width={25}
+                  height={25}
                   unoptimized
                   priority={false}
-                  quality={20}
+                  quality={10}
                 />
               </div>
               <div className={styles.nameDisplay}>
@@ -62,11 +62,11 @@ async function Card(league: leagueType) {
                   src={
                     league.awayTeamLogo == "" ? emptyLogo : league.awayTeamLogo
                   }
-                  width={30}
-                  height={30}
+                  width={25}
+                  height={25}
                   unoptimized
                   priority={false}
-                  quality={20}
+                  quality={10}
                 />
               </div>
               <div className={styles.nameDisplay}>
