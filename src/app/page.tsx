@@ -16,14 +16,10 @@ export default async function Home() {
 
   let dataMain: dataMainType[] = [];
 
-  dataFixtures.map((fixture) => {
+  dataFixtures.forEach((fixture) => {
     dataPrediction.some((prediction) => {
       if (prediction.match_id === fixture.match_id) {
         dataMain.push({ fixture, prediction });
-      }
-
-      if (fixture.match_hometeam_name == "Stade d Abidjan") {
-        console.log(fixture.team_home_badge);
       }
     });
   });
@@ -53,7 +49,7 @@ export default async function Home() {
     { name: "Ivory Coast", priority: 4 },
   ];
 
-  dataMain.map((data) => {
+  dataMain.forEach((data) => {
     if (
       countriesFixture.some(
         (contry) => contry.name === data.fixture.country_name
@@ -84,7 +80,7 @@ export default async function Home() {
     fixture: dataMainType[];
   }[] = [];
 
-  countriesFixture.map((contry) => {
+  countriesFixture.forEach((contry) => {
     let fixtureByCountry = dataMain.filter(function (data) {
       return contry.name === data.fixture.country_name;
     });
@@ -96,9 +92,51 @@ export default async function Home() {
     });
   });
 
-  // const getFixture = (id: number) => {
-  //   console.log(id);
-  // };
+  const leaguesByCountries: { name: string; country: string }[] = [
+    { name: "Premier League", country: "England" },
+    { name: "Bundesliga", country: "Ger" },
+    { name: "Serie A", country: "Itary" },
+    { name: "La Liga", country: "" },
+    { name: "Süper Lig", country: "" },
+    { name: "Ligue 1", country: "" },
+  ];
+
+  let dataFixtureByCountrySorted: {
+    country: string;
+    flag: string;
+    fixture: dataMainType[];
+  }[] = [];
+
+  dataFixtureByCountry.forEach((match) => {
+    let target = match.fixture;
+    let vilivyomo: dataMainType[] = [];
+    console.log(match.country);
+
+    match.fixture.forEach((league) => {
+      console.log(league.fixture.country_name);
+      leaguesByCountries.forEach((ligi) => {
+        if (
+          ligi.name == league.fixture.league_name &&
+          ligi.country == league.fixture.country_name
+        ) {
+          let index = match.fixture.findIndex(
+            (mechi) => mechi.fixture.league_name == league.fixture.league_name
+          );
+          vilivyomo.push(league);
+          target.splice(index, 1);
+        }
+      });
+    });
+
+    console.log(vilivyomo[0]);
+    let fixtureSorted = [...vilivyomo, ...target];
+
+    dataFixtureByCountrySorted.push({
+      country: match.country,
+      flag: match.flag,
+      fixture: fixtureSorted,
+    });
+  });
 
   return (
     <div className={styles.container}>
@@ -106,7 +144,7 @@ export default async function Home() {
         <div
           className={styles.headerTop}
         >{`Free Betting Tips For ${getTodayDate()}`}</div>
-        {dataFixtureByCountry.map((match) => (
+        {dataFixtureByCountrySorted.map((match) => (
           <>
             <div className={styles.headerTopImage}>
               <Image
