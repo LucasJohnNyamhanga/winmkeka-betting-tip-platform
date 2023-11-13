@@ -42,7 +42,7 @@ async function Card(league: leagueType) {
                   height={25}
                   unoptimized
                   priority={false}
-                  quality={10}
+                  quality={1}
                 />
               </div>
               <div className={styles.nameDisplay}>
@@ -66,7 +66,7 @@ async function Card(league: leagueType) {
                   height={25}
                   unoptimized
                   priority={false}
-                  quality={10}
+                  quality={1}
                 />
               </div>
               <div className={styles.nameDisplay}>

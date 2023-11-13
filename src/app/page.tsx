@@ -143,7 +143,7 @@ export default async function Home() {
                 width={25}
                 height={25}
                 unoptimized
-                quality={10}
+                quality={1}
                 priority={false}
               />
               <div className={styles.text}>{match.country}</div>
