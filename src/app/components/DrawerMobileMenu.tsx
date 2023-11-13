@@ -3,13 +3,19 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Styles from "../styles/drawerMobile.module.scss";
 import Toggle from "./Toggle";
+import { countryOptionsType } from "../Engine/type";
 
 type dataType = {
   handleMenu: (linkValue: string) => void;
   handleSignOut: () => void;
   handleSighIn: () => void;
   handleJisajili: () => void;
+  countries: countryOptionsType;
   navActive: string;
+  betOptions: {
+    name: string;
+    link: string;
+  }[];
 };
 
 export const MuiDrawer = ({
@@ -17,13 +23,17 @@ export const MuiDrawer = ({
   navActive,
   handleSignOut,
   handleSighIn,
+  countries,
   handleJisajili,
+  betOptions,
 }: dataType) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const humberger = useRef<HTMLDivElement>(null!);
   const [activeName, setactiveName] = useState("");
 
   useEffect(() => {}, [navActive]);
+
+  console.log(countries);
 
   const handleSetActiveName = (name: string) => {
     setactiveName(name);
@@ -45,15 +55,6 @@ export const MuiDrawer = ({
     humberger.current.classList.toggle(Styles.isActive);
     setactiveName("");
   };
-
-  const betOptions = [
-    { name: "Over 2.5 Goals", link: "/#" },
-    { name: "Under 2.5 Goals", link: "/#" },
-    { name: "Over 3.5 Goals", link: "/#" },
-    { name: "Under 3.5 Goals", link: "/#" },
-    { name: "Win", link: "/#" },
-    { name: "Win or Draw", link: "/#" },
-  ];
 
   return (
     <>
@@ -77,6 +78,14 @@ export const MuiDrawer = ({
             <Toggle
               list={betOptions}
               name={`Today's Tips`}
+              action={handleMenuClick}
+              activeName={activeName}
+              setActiveName={handleSetActiveName}
+            />
+            <Divider />
+            <Toggle
+              list={countries}
+              name={`Bet Tips By Country`}
               action={handleMenuClick}
               activeName={activeName}
               setActiveName={handleSetActiveName}

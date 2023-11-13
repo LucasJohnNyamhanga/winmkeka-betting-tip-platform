@@ -2,6 +2,8 @@ import "./styles/globals.scss";
 import Navigation from "./components/Navigation";
 
 import type { Metadata } from "next";
+import { getFixtures } from "./Engine/fetchRequest";
+import { fixtureType } from "./Engine/type";
 
 export const metadata: Metadata = {
   title: "Sure Betting Tips",
@@ -78,11 +80,20 @@ export const metadata: Metadata = {
   publisher: "Lucas John",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const dataFixtures: fixtureType[] = await getFixtures();
+  let countries: string[] = [];
+
+  dataFixtures.forEach((fixture) => {
+    countries.push(fixture.country_name);
+  });
+
+  const nchi = [...new Set(countries)].sort();
+
   return (
     <html lang="en">
       {/*
@@ -93,7 +104,7 @@ export default function RootLayout({
 
       <body>
         {children}
-        <Navigation />
+        <Navigation countries={nchi} />
       </body>
     </html>
   );

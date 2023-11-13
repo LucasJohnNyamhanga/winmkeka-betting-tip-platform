@@ -5,8 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import DrawerMobile from "./DrawerMobileMenu";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { countryOptionsType, countryType } from "../Engine/type";
 
-export const NavMobile = () => {
+export const NavMobile = ({ countries }: countryType) => {
   let handleSignIn = () => {};
 
   let handleRegister = () => {};
@@ -16,6 +17,21 @@ export const NavMobile = () => {
   let handleMobileMenu = (linkValue: string) => {
     //setNavActive(linkValue);
   };
+
+  const betOptions = [
+    { name: "Over 2.5 Goals", link: "/#" },
+    { name: "Under 2.5 Goals", link: "/#" },
+    { name: "Over 3.5 Goals", link: "/#" },
+    { name: "Under 3.5 Goals", link: "/#" },
+    { name: "Win", link: "/#" },
+    { name: "Win or Draw", link: "/#" },
+  ];
+
+  let countryOptions: countryOptionsType = [];
+
+  countries.forEach((country) => {
+    countryOptions.push({ name: country, link: `/${country}` });
+  });
 
   return (
     <div className={Styles.container}>
@@ -50,6 +66,8 @@ export const NavMobile = () => {
               handleSignOut={handleLogOut}
               handleSighIn={handleSignIn}
               handleJisajili={handleRegister}
+              betOptions={betOptions}
+              countries={countryOptions}
             />
           </nav>
         </div>

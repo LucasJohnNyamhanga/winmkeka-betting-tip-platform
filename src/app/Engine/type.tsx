@@ -195,3 +195,10 @@ export type dataMainType = {
   fixture: fixtureType;
   prediction: predictionType;
 };
+
+export type countryType = { countries: string[] };
+
+export type countryOptionsType = {
+  name: string;
+  link: string;
+}[];
