@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useEffect, useState } from "react";
+
 import Styles from "../styles/NavMobile.module.scss";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,9 +7,6 @@ import DrawerMobile from "./DrawerMobileMenu";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 export const NavMobile = () => {
-  const [limt, setLimit] = useState(0);
-  const matches300 = useMediaQuery("(max-width:325px)");
-
   let handleSignIn = () => {};
 
   let handleRegister = () => {};
