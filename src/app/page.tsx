@@ -134,7 +134,7 @@ export default async function Home() {
           className={styles.headerTop}
         >{`Free Betting Tips For ${getTodayDate()}`}</div>
         {dataFixtureByCountrySorted.map((match) => (
-          <>
+          <div key={match.country}>
             <div className={styles.headerTopImage}>
               <Image
                 alt=""
@@ -150,7 +150,9 @@ export default async function Home() {
             </div>
             {match.fixture.map((data, index) => (
               <Card
-                key={parseInt(data.fixture.match_id) + getRandomNumber()}
+                key={
+                  parseInt(data.fixture.match_id) + getRandomNumber() + index
+                }
                 data={data}
                 time={data.fixture.match_date}
                 leagueName={data.fixture.league_name}
@@ -162,7 +164,7 @@ export default async function Home() {
                 awayTeamLogo={data.fixture.team_away_badge}
               />
             ))}
-          </>
+          </div>
         ))}
       </main>
     </div>
