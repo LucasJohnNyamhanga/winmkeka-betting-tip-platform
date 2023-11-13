@@ -30,7 +30,7 @@ export const NavMobile = ({ countries }: countryType) => {
   let countryOptions: countryOptionsType = [];
 
   countries.forEach((country) => {
-    countryOptions.push({ name: country, link: `/${country}` });
+    countryOptions.push({ name: country, link: `/#` });
   });
 
   return (
