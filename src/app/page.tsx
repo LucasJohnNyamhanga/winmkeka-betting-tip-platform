@@ -111,15 +111,13 @@ export default async function Home() {
     let target = match.fixture;
     let found: dataMainType[] = [];
     match.fixture.map((mechi) => {
-      console.log(mechi.fixture.league_name);
       if (leaguesByCountries.includes(mechi.fixture.league_name)) {
         let index = match.fixture.indexOf(mechi);
         found.push(mechi);
         target.splice(index, 1);
       }
     });
-    // console.log(target);
-    // console.log(found);
+
     target = [...found, ...target];
 
     dataFixtureByCountrySorted.push({
