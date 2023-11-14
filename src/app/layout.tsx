@@ -93,6 +93,15 @@ export default async function RootLayout({
   });
 
   const nchi = [...new Set(countries)].sort();
+  let nchiMechiIdadi: string[] = [];
+
+  nchi.forEach((inchi) => {
+    let fixtures = dataFixtures.filter((mechi) => {
+      return mechi.country_name === inchi;
+    });
+
+    nchiMechiIdadi.push(`${inchi} - (${fixtures.length})`);
+  });
 
   return (
     <html lang="en">
@@ -104,7 +113,7 @@ export default async function RootLayout({
 
       <body>
         {children}
-        <Navigation countries={nchi} />
+        <Navigation countries={nchiMechiIdadi} />
       </body>
     </html>
   );
