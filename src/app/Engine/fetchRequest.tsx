@@ -19,8 +19,8 @@ async function fetchData(from: string, to: string) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
-  revalidateTag("fixture");
-  revalidatePath("/");
+  // revalidateTag("fixture");
+  // revalidatePath("/");
   return res.json();
 }
 
@@ -38,8 +38,8 @@ async function fetchPrediction(from: string, to: string) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
-  revalidateTag("fixture");
-  revalidatePath("/");
+  // revalidateTag("fixture");
+  // revalidatePath("/");
   return res.json();
 }
 
@@ -57,8 +57,8 @@ async function fetchH2h(homeTeamId: string, awayTeamId: string) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
-  revalidateTag("fixture");
-  revalidatePath("/");
+  // revalidateTag("fixture");
+  // revalidatePath("/");
   return res.json();
 }
 
