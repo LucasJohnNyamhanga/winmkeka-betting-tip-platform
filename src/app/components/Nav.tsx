@@ -46,7 +46,11 @@ const Nav = () => {
                   height={40}
                 />
               </div>
-              <div className={Styles.kkkt}>SureBetTip</div>
+
+              <div className={Styles.kkkt}>
+                {" "}
+                <Link href={`/`}> SureBetTip </Link>
+              </div>
             </div>
             <div className={Styles.links}>
               <ul>

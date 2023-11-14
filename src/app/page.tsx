@@ -115,7 +115,7 @@ export default async function Home() {
     let target = match.fixture;
     let found: dataMainType[] = [];
     match.fixture.map((mechi) => {
-      if (checkLeague(leaguesByCountries, mechi.fixture.league_name)) {
+      if (checkLeague(leaguesByCountries, mechi.fixture.league_name.trim())) {
         let index = match.fixture.indexOf(mechi);
         found.push(mechi);
         target.splice(index, 1);
