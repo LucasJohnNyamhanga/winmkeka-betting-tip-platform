@@ -2,6 +2,7 @@ import styles from "./styles/page.module.scss";
 import { getFixtures, getPrediction } from "./Engine/fetchRequest";
 import Card from "./components/card";
 import {
+  checkLeague,
   compareByPriorty,
   emptyLogo,
   getRandomNumber,
@@ -101,6 +102,7 @@ export default async function Home() {
     "La Liga",
     "Süper Lig",
     "Ligue 1",
+    "EFL Trophy",
   ];
 
   let dataFixtureByCountrySorted: {
@@ -113,7 +115,7 @@ export default async function Home() {
     let target = match.fixture;
     let found: dataMainType[] = [];
     match.fixture.map((mechi) => {
-      if (leaguesByCountries.includes(mechi.fixture.league_name)) {
+      if (checkLeague(leaguesByCountries, mechi.fixture.league_name)) {
         let index = match.fixture.indexOf(mechi);
         found.push(mechi);
         target.splice(index, 1);

@@ -24,7 +24,7 @@ async function Card(league: leagueType) {
           <div className={styles.flag}>
             <div className={styles.event}>
               <div className={styles.name}>
-                {customTruncate(league.leagueName, 18)}
+                {customTruncate(league.leagueName, 25)}
               </div>
             </div>
           </div>
