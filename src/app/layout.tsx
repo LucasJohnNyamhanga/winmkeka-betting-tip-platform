@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation";
 import type { Metadata } from "next";
 import { getFixtures } from "./Engine/fetchRequest";
 import { fixtureType } from "./Engine/type";
+import { getSimpleTodayDate } from "./Engine/functions";
 
 export const metadata: Metadata = {
   title: "Sure Betting Tips",
@@ -85,7 +86,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const dataFixtures: fixtureType[] = await getFixtures();
+  const today = getSimpleTodayDate();
+  const dataFixtures: fixtureType[] = await getFixtures(today, today);
   let countries: string[] = [];
 
   dataFixtures.forEach((fixture) => {
@@ -93,15 +95,6 @@ export default async function RootLayout({
   });
 
   const nchi = [...new Set(countries)].sort();
-  let nchiMechiIdadi: string[] = [];
-
-  nchi.forEach((inchi) => {
-    let fixtures = dataFixtures.filter((mechi) => {
-      return mechi.country_name === inchi;
-    });
-
-    nchiMechiIdadi.push(`${inchi} - (${fixtures.length})`);
-  });
 
   return (
     <html lang="en">
@@ -113,7 +106,7 @@ export default async function RootLayout({
 
       <body>
         {children}
-        <Navigation countries={nchiMechiIdadi} />
+        <Navigation countries={nchi} />
       </body>
     </html>
   );

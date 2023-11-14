@@ -5,14 +5,16 @@ import {
   compareByPriorty,
   emptyLogo,
   getRandomNumber,
+  getSimpleTodayDate,
   getTodayDate,
 } from "./Engine/functions";
 import { dataMainType, fixtureType, predictionType } from "./Engine/type";
 import Image from "next/image";
 
 export default async function Home() {
-  const dataPrediction: predictionType[] = await getPrediction();
-  const dataFixtures: fixtureType[] = await getFixtures();
+  const today = getSimpleTodayDate();
+  const dataPrediction: predictionType[] = await getPrediction(today, today);
+  const dataFixtures: fixtureType[] = await getFixtures(today, today);
 
   let dataMain: dataMainType[] = [];
 
