@@ -13,7 +13,7 @@ type dataType = {
 async function fetchData(from: string, to: string) {
   const res = await fetch(
     `https://apiv3.apifootball.com/?action=get_events&from=${from}&to=${to}&APIkey=${apiKey}`,
-    { method: "GET", next: { revalidate: 450, tags: ["fixture"] } }
+    { next: { revalidate: 450 } }
   );
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -30,7 +30,7 @@ export const getFixtures = cache(fetchData);
 async function fetchPrediction(from: string, to: string) {
   const res = await fetch(
     `https://apiv3.apifootball.com/?action=get_predictions&from=${from}&to=${to}&APIkey=${apiKey}`,
-    { method: "GET", next: { revalidate: 450, tags: ["fixture"] } }
+    { next: { revalidate: 450 } }
   );
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
@@ -49,7 +49,7 @@ export const getPrediction = cache(fetchPrediction);
 async function fetchH2h(homeTeamId: string, awayTeamId: string) {
   const res = await fetch(
     `https://apiv3.apifootball.com/?action=get_H2H&firstTeamId=${homeTeamId}&secondTeamId=${awayTeamId}&APIkey=${apiKey}`,
-    { method: "GET", next: { revalidate: 450, tags: ["fixture"] } }
+    { next: { revalidate: 450 } }
   );
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
