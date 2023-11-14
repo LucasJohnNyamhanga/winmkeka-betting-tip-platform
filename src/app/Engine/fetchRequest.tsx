@@ -44,3 +44,22 @@ async function fetchPrediction(from: string, to: string) {
 }
 
 export const getPrediction = cache(fetchPrediction);
+
+///Fetch Predictions
+async function fetchH2h(homeTeamId: string, awayTeamId: string) {
+  const res = await fetch(
+    `https://apiv3.apifootball.com/?action=get_H2H&firstTeamId=${homeTeamId}&secondTeamId=${awayTeamId}&APIkey=${apiKey}`,
+    { method: "GET", next: { revalidate: 450, tags: ["fixture"] } }
+  );
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  revalidateTag("fixture");
+  revalidatePath("/");
+  return res.json();
+}
+
+export const getHeadToHead = cache(fetchH2h);

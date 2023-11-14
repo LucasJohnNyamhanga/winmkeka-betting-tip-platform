@@ -33,8 +33,6 @@ export const MuiDrawer = ({
 
   useEffect(() => {}, [navActive]);
 
-  console.log(countries);
-
   const handleSetActiveName = (name: string) => {
     setactiveName(name);
   };

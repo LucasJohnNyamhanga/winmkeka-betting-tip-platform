@@ -8,10 +8,7 @@ const nextConfig = {
 		],
 		domains: ["apiv3.apifootball.com","surebettip.com", "*"],
     
-  },
-  experimental: {
-    serverActions: true,
-  },
+  }
 }
 
 module.exports = nextConfig

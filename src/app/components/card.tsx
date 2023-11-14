@@ -2,6 +2,7 @@ import styles from "../styles/card.module.scss";
 import Image from "next/image";
 import { customTruncate, emptyLogo } from "../Engine/functions";
 import { dataMainType } from "../Engine/type";
+import Link from "next/link";
 
 type leagueType = {
   data: dataMainType;
@@ -115,7 +116,9 @@ async function Card(league: leagueType) {
                 15
               )} to win`}
         </div>
-        <div className={styles.details}>More Details</div>
+        <Link href={`/details/${league.data.fixture.match_id}`}>
+          <div className={styles.details}>More Details</div>
+        </Link>
       </div>
     </div>
   );
