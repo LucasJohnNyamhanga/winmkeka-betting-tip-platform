@@ -44,36 +44,31 @@ export default async function Page({
     mechiFixture.match_hometeam_id,
     mechiFixture.match_awayteam_id
   );
-  console.log(dataHeadToHead);
 
   const checkWinningH2H = () => {
     if (dataHeadToHead.firstTeam_VS_secondTeam.length > 0) {
       let homeTeamWin = 0;
       let awayTeamWin = 0;
       let totalGames = dataHeadToHead.firstTeam_VS_secondTeam.length;
+      let draw = 0;
       dataHeadToHead.firstTeam_VS_secondTeam.forEach((data) => {
         //check home team wining in all meetings
-        if (data.match_hometeam_name === mechiFixture.match_hometeam_name) {
-          if (data.match_hometeam_score > data.match_awayteam_score) {
+        if (data.match_hometeam_score > data.match_awayteam_score) {
+          if (data.match_hometeam_name == mechiFixture.match_hometeam_name) {
             homeTeamWin++;
+          } else {
+            awayTeamWin++;
           }
-        }
-        if (data.match_awayteam_name === mechiFixture.match_hometeam_name) {
-          if (data.match_hometeam_score < data.match_awayteam_score) {
+        } else if (data.match_hometeam_score < data.match_awayteam_score) {
+          if (data.match_hometeam_name == mechiFixture.match_hometeam_name) {
             homeTeamWin++;
-          }
-        }
-
-        //check away team wining in all meetings
-        if (data.match_hometeam_name === mechiFixture.match_awayteam_name) {
-          if (data.match_hometeam_score > data.match_awayteam_score) {
+          } else {
             awayTeamWin++;
           }
         }
-        if (data.match_awayteam_name === mechiFixture.match_awayteam_name) {
-          if (data.match_hometeam_score < data.match_awayteam_score) {
-            awayTeamWin++;
-          }
+        //check draw
+        if (data.match_hometeam_score === data.match_awayteam_score) {
+          draw++;
         }
       });
 
@@ -81,9 +76,9 @@ export default async function Page({
         mechiFixture.match_hometeam_name
       } has won ${homeTeamWin} while ${
         mechiFixture.match_awayteam_name
-      } has won ${awayTeamWin} and they have drawn ${
-        totalGames - (homeTeamWin + awayTeamWin)
-      } times in their last ${totalGames} meetings`;
+      } has won ${awayTeamWin} and they have drawn ${draw} times in their last ${totalGames} ${
+        totalGames > 1 ? "meetings" : "meeting"
+      }`;
     }
 
     return `${mechiFixture.match_hometeam_name} and ${mechiFixture.match_awayteam_name} are meeting for the first time`;
