@@ -72,13 +72,13 @@ export default async function Page({
         }
       });
 
-      return `${
-        mechiFixture.match_hometeam_name
-      } has won ${homeTeamWin} while ${
-        mechiFixture.match_awayteam_name
-      } has won ${awayTeamWin} and they have drawn ${draw} times in their last ${totalGames} ${
-        totalGames > 1 ? "meetings" : "meeting"
-      }`;
+      return `${mechiFixture.match_hometeam_name} has won ${homeTeamWin} ${
+        homeTeamWin > 1 ? "games" : "game"
+      } while ${mechiFixture.match_awayteam_name} has won ${awayTeamWin} ${
+        awayTeamWin > 1 ? "games" : "game"
+      } and they have drawn ${draw} ${
+        draw > 1 ? "times" : "time"
+      } in their last ${totalGames} ${totalGames > 1 ? "meetings" : "meeting"}`;
     }
 
     return `${mechiFixture.match_hometeam_name} and ${mechiFixture.match_awayteam_name} are meeting for the first time`;
