@@ -1,0 +1,144 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  .main {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 110px;
+
+    .header {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 25px 10px 10px 10px;
+    }
+
+    .headerTop {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0px 20px 10px 10px;
+
+      .leagueName {
+        margin-left: 10px;
+        margin-right: 10px;
+        font-weight: 600;
+        font-size: 16px;
+        width: 100%;
+        display: flex;
+      }
+
+      .stadiumDetails {
+        margin-left: 10px;
+        margin-right: 10px;
+        font-weight: 400;
+        font-size: 12px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .Stadium {
+          margin-top: 5px;
+        }
+
+        .date {
+          margin-top: 5px;
+        }
+      }
+
+      .teams {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+
+        .homeTeam {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          .text {
+            margin-top: 10px;
+            text-wrap: wrap;
+          }
+        }
+
+        .board {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          justify-content: space-around;
+          align-items: center;
+
+          .score {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0px 10px;
+            font-size: 20px;
+          }
+        }
+        .boardAway {
+          display: flex;
+          flex-direction: row-reverse;
+          width: 100%;
+          justify-content: space-around;
+          align-items: center;
+          .score {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0px 10px;
+            font-size: 20px;
+          }
+        }
+
+        .vs {
+          font-size: 14px;
+          font-weight: 500;
+          width: fit-content;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .uwanja {
+            font-weight: 600;
+            font-size: 15px;
+          }
+          .Stadium {
+            padding: 10px;
+          }
+          .date {
+          }
+        }
+        .awayTeam {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          .text {
+            margin-top: 10px;
+            text-wrap: wrap;
+          }
+        }
+      }
+      .winningHeader {
+        margin: 10px;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .winningHeadToHead {
+        font-size: 14px;
+        font-weight: 500;
+        margin: 10px;
+      }
+    }
+  }
+}

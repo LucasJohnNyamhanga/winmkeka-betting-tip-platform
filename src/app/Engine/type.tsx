@@ -202,3 +202,76 @@ export type countryOptionsType = {
   name: string;
   link: string;
 }[];
+
+export type h2hType = {
+  firstTeam_VS_secondTeam: {
+    match_id: string;
+    country_id: string;
+    country_name: string;
+    league_id: string;
+    league_name: string;
+    match_date: string;
+    match_status: string;
+    match_time: string;
+    match_hometeam_id: string;
+    match_hometeam_name: string;
+    match_hometeam_score: string;
+    match_awayteam_id: string;
+    match_awayteam_name: string;
+    match_awayteam_score: string;
+    match_hometeam_halftime_score: string;
+    match_awayteam_halftime_score: string;
+    match_live: string;
+    team_home_badge: string;
+    team_away_badge: string;
+    league_logo: string;
+    country_logo: string;
+  }[];
+
+  firstTeam_lastResults: {
+    match_id: string;
+    country_id: string;
+    country_name: string;
+    league_id: string;
+    league_name: string;
+    match_date: string;
+    match_status: string;
+    match_time: string;
+    match_hometeam_id: string;
+    match_hometeam_name: string;
+    match_hometeam_score: string;
+    match_awayteam_id: string;
+    match_awayteam_name: string;
+    match_awayteam_score: string;
+    match_hometeam_halftime_score: string;
+    match_awayteam_halftime_score: string;
+    match_live: string;
+    team_home_badge: string;
+    team_away_badge: string;
+    league_logo: string;
+    country_logo: string;
+  }[];
+  secondTeam_lastResults: {
+    match_id: string;
+    country_id: string;
+    country_name: string;
+    league_id: string;
+    league_name: string;
+    match_date: string;
+    match_status: string;
+    match_time: string;
+    match_hometeam_id: string;
+    match_hometeam_name: string;
+    match_hometeam_score: string;
+    match_awayteam_id: string;
+    match_awayteam_name: string;
+    match_awayteam_score: string;
+    match_hometeam_halftime_score: string;
+    match_awayteam_halftime_score: string;
+    match_live: string;
+    team_home_badge: string;
+    team_away_badge: string;
+    league_logo: string;
+    country_logo: string;
+  }[];
+};
