@@ -81,7 +81,7 @@ export default async function Page({
       } in their last ${totalGames} ${totalGames > 1 ? "meetings" : "meeting"}`;
     }
 
-    return `${mechiFixture.match_hometeam_name} and ${mechiFixture.match_awayteam_name} are meeting for the first time`;
+    return `${mechiFixture.match_hometeam_name} and ${mechiFixture.match_awayteam_name} are meeting for the first time in this game`;
   };
 
   return (
