@@ -9,7 +9,6 @@ import {
 const today = getSimpleTodayDate();
 
 export async function generateStaticParams() {
-  const dataPrediction: predictionType[] = await getPrediction(today, today);
   const dataFixtures: fixtureType[] = await getFixtures(today, today);
 
   return dataFixtures.map((fixture) => ({
@@ -45,6 +44,7 @@ export default async function Page({
     <div className={styles.container}>
       <main className={styles.main}>
         <div className={styles.headerTop}>
+          <div className={styles.headerTop}></div>
           {fixture.map((match) => (
             <div key={match.match_id}>
               {match.match_hometeam_name + "vs" + match.match_awayteam_name}

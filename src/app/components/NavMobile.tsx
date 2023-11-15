@@ -56,9 +56,7 @@ export const NavMobile = ({ countries }: countryType) => {
                     height={40}
                   />
                 </div>
-                <div className={Styles.shule}>
-                  <Link href={`/`}> SureBetTip </Link>
-                </div>
+                <div className={Styles.shule}>SureBetTip</div>
               </div>
             </Link>
             <div className={Styles.links}></div>

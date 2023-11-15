@@ -1,8 +1,4 @@
-import {
-  unstable_cache as cache,
-  revalidateTag,
-  revalidatePath,
-} from "next/cache";
+import { unstable_cache as cache } from "next/cache";
 import { apiKey } from "./functions";
 
 type dataType = {
@@ -12,8 +8,7 @@ type dataType = {
 
 async function fetchData(from: string, to: string) {
   const res = await fetch(
-    `https://apiv3.apifootball.com/?action=get_events&from=${from}&to=${to}&APIkey=${apiKey}`,
-    { next: { revalidate: 450 } }
+    `https://apiv3.apifootball.com/?action=get_events&from=${from}&to=${to}&APIkey=${apiKey}`
   );
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -24,13 +19,12 @@ async function fetchData(from: string, to: string) {
   return res.json();
 }
 
-export const getFixtures = cache(fetchData);
+export const getFixtures = cache(fetchData, ["fixtures"], { revalidate: 450 });
 
 ///Fetch Predictions
 async function fetchPrediction(from: string, to: string) {
   const res = await fetch(
-    `https://apiv3.apifootball.com/?action=get_predictions&from=${from}&to=${to}&APIkey=${apiKey}`,
-    { next: { revalidate: 450 } }
+    `https://apiv3.apifootball.com/?action=get_predictions&from=${from}&to=${to}&APIkey=${apiKey}`
   );
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
@@ -43,13 +37,14 @@ async function fetchPrediction(from: string, to: string) {
   return res.json();
 }
 
-export const getPrediction = cache(fetchPrediction);
+export const getPrediction = cache(fetchPrediction, ["prediction"], {
+  revalidate: 450,
+});
 
 ///Fetch Predictions
 async function fetchH2h(homeTeamId: string, awayTeamId: string) {
   const res = await fetch(
-    `https://apiv3.apifootball.com/?action=get_H2H&firstTeamId=${homeTeamId}&secondTeamId=${awayTeamId}&APIkey=${apiKey}`,
-    { next: { revalidate: 450 } }
+    `https://apiv3.apifootball.com/?action=get_H2H&firstTeamId=${homeTeamId}&secondTeamId=${awayTeamId}&APIkey=${apiKey}`
   );
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
@@ -62,4 +57,4 @@ async function fetchH2h(homeTeamId: string, awayTeamId: string) {
   return res.json();
 }
 
-export const getHeadToHead = cache(fetchH2h);
+export const getHeadToHead = cache(fetchH2h, ["h2h"], { revalidate: 3600 });

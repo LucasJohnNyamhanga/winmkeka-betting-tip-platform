@@ -2,6 +2,7 @@
 import Styles from "../styles/navigation.module.scss";
 import Link from "next/link";
 import Image from "next/image";
+import Linker from "./Link";
 
 const Nav = () => {
   let handleSignIn = () => {};
@@ -46,10 +47,8 @@ const Nav = () => {
                   height={40}
                 />
               </div>
-
               <div className={Styles.kkkt}>
-                {" "}
-                <Link href={`/`}> SureBetTip </Link>
+                <Linker name={"SureBetTip"} link={"/"} />
               </div>
             </div>
             <div className={Styles.links}>
