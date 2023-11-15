@@ -78,10 +78,12 @@ export default async function Page({
         awayTeamWin > 1 ? "games" : "game"
       } and they have drawn ${draw} ${
         draw > 1 ? "times" : "time"
-      } in their last ${totalGames} ${totalGames > 1 ? "meetings" : "meeting"}`;
+      } in their last ${totalGames} ${
+        totalGames > 1 ? "meetings" : "meeting."
+      }`;
     }
 
-    return `${mechiFixture.match_hometeam_name} and ${mechiFixture.match_awayteam_name} are meeting for the first time in this game`;
+    return `${mechiFixture.match_hometeam_name} and ${mechiFixture.match_awayteam_name} are meeting for the first time in this game.`;
   };
 
   return (
