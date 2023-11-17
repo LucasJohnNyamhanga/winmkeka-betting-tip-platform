@@ -80,15 +80,15 @@ async function Card(league: leagueType) {
           </div>
         </div>
         <div className={styles.Prediction}>
-          {parseInt(league.data.prediction.prob_HW) > 65
+          {parseInt(league.data.prediction.prob_HW) > 60
             ? `${customTruncate(league.homeTeam, 15)} to win`
-            : parseInt(league.data.prediction.prob_HW_D) > 75
+            : parseInt(league.data.prediction.prob_HW_D) > 70
             ? `${customTruncate(league.homeTeam, 15)} to Win or Draw`
-            : parseInt(league.data.prediction.prob_AW_D) > 75
+            : parseInt(league.data.prediction.prob_AW_D) > 70
             ? `${customTruncate(league.awayTeam, 15)} to Win or Draw`
-            : parseInt(league.data.prediction.prob_AW) > 65
+            : parseInt(league.data.prediction.prob_AW) > 60
             ? `${customTruncate(league.awayTeam, 15)} to win`
-            : parseInt(league.data.prediction.prob_D) > 65
+            : parseInt(league.data.prediction.prob_D) > 55
             ? `Draw`
             : parseInt(league.data.prediction.prob_HW_AW) > 65
             ? `${customTruncate(league.homeTeam, 15)} or ${customTruncate(

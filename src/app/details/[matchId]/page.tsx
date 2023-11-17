@@ -45,6 +45,19 @@ export default async function Page({
     mechiFixture.match_awayteam_id
   );
 
+  const checkGoal = () => {
+    let goals = 0;
+    let meetings = dataHeadToHead.firstTeam_VS_secondTeam.length;
+    dataHeadToHead.firstTeam_VS_secondTeam.forEach((match) => {
+      goals +=
+        parseInt(match.match_awayteam_score) +
+        parseInt(match.match_hometeam_score);
+    });
+    const goalPercentage = (goals / meetings) * 100;
+    console.log(goalPercentage);
+    return goalPercentage > 80 ? `There will be a goal in this match` : ``;
+  };
+
   const checkWinningH2H = () => {
     if (dataHeadToHead.firstTeam_VS_secondTeam.length > 0) {
       let homeTeamWin = 0;
@@ -53,17 +66,18 @@ export default async function Page({
       let draw = 0;
       dataHeadToHead.firstTeam_VS_secondTeam.forEach((data) => {
         //check home team wining in all meetings
+
         if (data.match_hometeam_score > data.match_awayteam_score) {
-          if (data.match_hometeam_name == mechiFixture.match_hometeam_name) {
+          if (mechiFixture.match_hometeam_name == data.match_hometeam_name) {
             homeTeamWin++;
           } else {
             awayTeamWin++;
           }
         } else if (data.match_hometeam_score < data.match_awayteam_score) {
-          if (data.match_hometeam_name == mechiFixture.match_hometeam_name) {
-            homeTeamWin++;
-          } else {
+          if (mechiFixture.match_awayteam_name == data.match_awayteam_name) {
             awayTeamWin++;
+          } else {
+            homeTeamWin++;
           }
         }
         //check draw
@@ -151,8 +165,51 @@ export default async function Page({
           <div className={styles.winningHeader}>Last meeting status</div>
           <div className={styles.winningHeadToHead}>
             <div>{checkWinningH2H()}</div>
-            <div></div>
           </div>
+
+          <div className={styles.winningHeader}>Facts about this match</div>
+          <div className={styles.winningHeadToHead}>
+            <ul>
+              {checkGoal().length > 1 && <li>{checkGoal()}</li>}
+              <li>{`${mechiFixture.match_hometeam_name} has ${parseInt(
+                mechiPrediction.prob_HW
+              )}% to win this match. ${
+                parseInt(mechiPrediction.prob_HW) > 60
+                  ? "(Favourite to WIN)"
+                  : ""
+              }`}</li>
+              <li>{`${mechiFixture.match_awayteam_name} has ${parseInt(
+                mechiPrediction.prob_AW
+              )}% to win this match. ${
+                parseInt(mechiPrediction.prob_AW) > 60
+                  ? "(Favourite to WIN)"
+                  : ""
+              }`}</li>
+              <li>{`Match draw has ${parseInt(
+                mechiPrediction.prob_D
+              )}% probability.`}</li>
+            </ul>
+          </div>
+          {dataHeadToHead.firstTeam_VS_secondTeam.length > 0 && (
+            <>
+              <div className={styles.winningHeaderStatus}>
+                Head to head status
+              </div>
+              <div className={styles.body}>
+                {dataHeadToHead.firstTeam_VS_secondTeam.map((h2h) => (
+                  <div key={h2h.match_id} className={styles.element}>
+                    {customTruncate(h2h.match_hometeam_name, 15) +
+                      " " +
+                      h2h.match_hometeam_score +
+                      " : " +
+                      h2h.match_awayteam_score +
+                      " " +
+                      customTruncate(h2h.match_awayteam_name, 15)}
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </main>
     </div>

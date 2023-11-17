@@ -1,3 +1,4 @@
+@import "index";
 .container {
   display: flex;
   flex-direction: column;
@@ -27,6 +28,7 @@
         font-size: 16px;
         width: 100%;
         display: flex;
+        color: $ugoro;
       }
 
       .stadiumDetails {
@@ -134,11 +136,36 @@
         font-size: 16px;
         font-weight: 600;
         margin-top: 25px;
+        color: $ugoro;
       }
       .winningHeadToHead {
         font-size: 14px;
         font-weight: 500;
         margin: 10px;
+
+        ul {
+          li {
+            padding-bottom: 5px;
+          }
+        }
+      }
+
+      .winningHeaderStatus {
+        font-size: 16px;
+        font-weight: 500;
+        margin: 10px;
+        color: $ugoro;
+      }
+
+      .body {
+        font-size: 14px;
+        font-weight: 500;
+        margin: 10px;
+
+        .element {
+          padding: 5px;
+          font-weight: 600;
+        }
       }
     }
   }
