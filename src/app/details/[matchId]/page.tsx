@@ -16,9 +16,9 @@ import Image from "next/image";
 const today = getSimpleTodayDate();
 
 export async function generateStaticParams() {
-  const dataFixtures: fixtureType[] = await getFixtures(today, today);
+  const dataPrediction: predictionType[] = await getPrediction(today, today);
 
-  return dataFixtures.map((fixture) => ({
+  return dataPrediction.map((fixture) => ({
     matchId: fixture.match_id,
   }));
 }
