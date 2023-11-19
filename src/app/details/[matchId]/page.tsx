@@ -18,11 +18,7 @@ const today = getSimpleTodayDate();
 export async function generateStaticParams() {
   const dataPrediction: predictionType[] = await getPrediction(today, today);
 
-  const validPage = dataPrediction.filter((fix) => {
-    return fix.prob_HW != "";
-  });
-
-  return validPage.map((fixture) => ({
+  return dataPrediction.map((fixture) => ({
     matchId: fixture.match_id,
   }));
 }
@@ -73,16 +69,22 @@ export default async function Page({
         //check home team wining in all meetings
 
         if (data.match_hometeam_score > data.match_awayteam_score) {
-          if (mechiFixture.match_hometeam_name == data.match_hometeam_name) {
+          if (
+            mechiFixture.match_hometeam_name == data.match_hometeam_name ||
+            mechiFixture.match_hometeam_name == data.match_awayteam_name
+          ) {
             homeTeamWin++;
           } else {
             awayTeamWin++;
           }
         } else if (data.match_hometeam_score < data.match_awayteam_score) {
-          if (mechiFixture.match_awayteam_name == data.match_awayteam_name) {
-            awayTeamWin++;
-          } else {
+          if (
+            mechiFixture.match_hometeam_name == data.match_hometeam_name ||
+            mechiFixture.match_hometeam_name == data.match_awayteam_name
+          ) {
             homeTeamWin++;
+          } else {
+            awayTeamWin++;
           }
         }
         //check draw
