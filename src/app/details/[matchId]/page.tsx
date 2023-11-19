@@ -18,7 +18,11 @@ const today = getSimpleTodayDate();
 export async function generateStaticParams() {
   const dataPrediction: predictionType[] = await getPrediction(today, today);
 
-  return dataPrediction.map((fixture) => ({
+  const validPage = dataPrediction.filter((fix) => {
+    return fix.prob_HW != "";
+  });
+
+  return validPage.map((fixture) => ({
     matchId: fixture.match_id,
   }));
 }
