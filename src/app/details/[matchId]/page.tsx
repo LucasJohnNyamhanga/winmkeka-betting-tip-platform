@@ -172,21 +172,21 @@ export default async function Page({
             <ul>
               {checkGoal().length > 1 && <li>{checkGoal()}</li>}
               <li>{`${mechiFixture.match_hometeam_name} has ${parseInt(
-                mechiPrediction.prob_HW
+                mechiPrediction.prob_HW ?? 0
               )}% to win this match. ${
-                parseInt(mechiPrediction.prob_HW) > 60
+                parseInt(mechiPrediction.prob_HW ?? 0) > 60
                   ? "(Favourite to WIN)"
                   : ""
               }`}</li>
               <li>{`${mechiFixture.match_awayteam_name} has ${parseInt(
-                mechiPrediction.prob_AW
+                mechiPrediction.prob_AW ?? 0
               )}% to win this match. ${
-                parseInt(mechiPrediction.prob_AW) > 60
+                parseInt(mechiPrediction.prob_AW ?? 0) > 60
                   ? "(Favourite to WIN)"
                   : ""
               }`}</li>
               <li>{`Match draw has ${parseInt(
-                mechiPrediction.prob_D
+                mechiPrediction.prob_D ?? 0
               )}% probability.`}</li>
             </ul>
           </div>
