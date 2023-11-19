@@ -67,9 +67,11 @@ export const getPredictionDetail = (
   dataPrediction: predictionType,
   dataFixture: fixtureType
 ) => {
-  return parseInt(dataPrediction.prob_HW) > 60
-    ? `${customTruncate(dataFixture.match_hometeam_name, 15)} to win`
+  return parseInt(dataPrediction.prob_bts) > 65
+    ? `Both Team To Score`
     : parseInt(dataPrediction.prob_HW_D) > 70
+    ? `${customTruncate(dataFixture.match_hometeam_name, 15)} to win`
+    : parseInt(dataPrediction.prob_ots) > 60
     ? `${customTruncate(dataFixture.match_hometeam_name, 15)} to Win or Draw`
     : parseInt(dataPrediction.prob_AW_D) > 70
     ? `${customTruncate(dataFixture.match_awayteam_name, 15)} to Win or Draw`
@@ -94,9 +96,7 @@ export const getPredictionDetail = (
     ? `Under 2.5 goals`
     : parseInt(dataPrediction.prob_U_1) > 60
     ? `Under 1.5 goals`
-    : parseInt(dataPrediction.prob_bts) > 60
-    ? `Both Team To Score`
-    : parseInt(dataPrediction.prob_ots) > 60
+    : parseInt(dataPrediction.prob_HW) > 60
     ? `Only one Team to Score`
     : `${customTruncate(
         dataFixture.match_hometeam_name,
