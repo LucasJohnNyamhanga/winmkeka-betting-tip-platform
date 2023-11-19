@@ -1,6 +1,7 @@
 import {
   customTruncate,
   emptyLogo,
+  getPredictionDetail,
   getSimpleTodayDate,
 } from "@/app/Engine/functions";
 import styles from "../../styles/deatilsPage.module.scss";
@@ -162,6 +163,10 @@ export default async function Page({
               </div>
             </div>
           </div>
+          <div className={styles.winningHeader}>Match Prediction</div>
+          <div className={styles.winningPrediction}>
+            {getPredictionDetail(mechiPrediction, mechiFixture)}
+          </div>
           <div className={styles.winningHeader}>Last meeting status</div>
           <div className={styles.winningHeadToHead}>
             <div>{checkWinningH2H()}</div>
@@ -190,6 +195,7 @@ export default async function Page({
               )}% probability.`}</li>
             </ul>
           </div>
+
           {dataHeadToHead.firstTeam_VS_secondTeam.length > 0 && (
             <>
               <div className={styles.winningHeaderStatus}>

@@ -1,7 +1,11 @@
 import styles from "../styles/card.module.scss";
 import Image from "next/image";
-import { customTruncate, emptyLogo } from "../Engine/functions";
-import { dataMainType } from "../Engine/type";
+import {
+  customTruncate,
+  emptyLogo,
+  getPredictionDetail,
+} from "../Engine/functions";
+import { dataMainType, fixtureType, predictionType } from "../Engine/type";
 import Link from "next/link";
 
 type leagueType = {
@@ -80,41 +84,7 @@ async function Card(league: leagueType) {
           </div>
         </div>
         <div className={styles.Prediction}>
-          {parseInt(league.data.prediction.prob_HW) > 60
-            ? `${customTruncate(league.homeTeam, 15)} to win`
-            : parseInt(league.data.prediction.prob_HW_D) > 70
-            ? `${customTruncate(league.homeTeam, 15)} to Win or Draw`
-            : parseInt(league.data.prediction.prob_AW_D) > 70
-            ? `${customTruncate(league.awayTeam, 15)} to Win or Draw`
-            : parseInt(league.data.prediction.prob_AW) > 60
-            ? `${customTruncate(league.awayTeam, 15)} to win`
-            : parseInt(league.data.prediction.prob_D) > 55
-            ? `Draw`
-            : parseInt(league.data.prediction.prob_HW_AW) > 65
-            ? `${customTruncate(league.homeTeam, 15)} or ${customTruncate(
-                league.awayTeam,
-                15
-              )} to win`
-            : parseInt(league.data.prediction.prob_O_1) > 60
-            ? `Over 1.5 goals`
-            : parseInt(league.data.prediction.prob_O) > 60
-            ? `Over 2.5 goals`
-            : parseInt(league.data.prediction.prob_O_3) > 60
-            ? `Over 3.5 goals`
-            : parseInt(league.data.prediction.prob_U_3) > 60
-            ? `Under 3.5 goals`
-            : parseInt(league.data.prediction.prob_U) > 60
-            ? `Under 2.5 goals`
-            : parseInt(league.data.prediction.prob_U_1) > 60
-            ? `Under 1.5 goals`
-            : parseInt(league.data.prediction.prob_bts) > 60
-            ? `Both Team To Score`
-            : parseInt(league.data.prediction.prob_ots) > 60
-            ? `Only one Team to Score`
-            : `${customTruncate(league.homeTeam, 15)} or ${customTruncate(
-                league.awayTeam,
-                15
-              )} to win`}
+          {getPredictionDetail(league.data.prediction, league.data.fixture)}
         </div>
         <Link href={`/details/${league.data.fixture.match_id}`}>
           <div className={styles.details}>More Details</div>

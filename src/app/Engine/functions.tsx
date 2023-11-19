@@ -1,3 +1,5 @@
+import { fixtureType, predictionType } from "./type";
+
 export function customTruncate(str: string, size: number) {
   return typeof str === "string"
     ? str.length > size
@@ -59,6 +61,47 @@ export const checkLeague = (leaguesByCountries: string[], league: string) => {
     return true;
   }
   return false;
+};
+
+export const getPredictionDetail = (
+  dataPrediction: predictionType,
+  dataFixture: fixtureType
+) => {
+  return parseInt(dataPrediction.prob_HW) > 60
+    ? `${customTruncate(dataFixture.match_hometeam_name, 15)} to win`
+    : parseInt(dataPrediction.prob_HW_D) > 70
+    ? `${customTruncate(dataFixture.match_hometeam_name, 15)} to Win or Draw`
+    : parseInt(dataPrediction.prob_AW_D) > 70
+    ? `${customTruncate(dataFixture.match_awayteam_name, 15)} to Win or Draw`
+    : parseInt(dataPrediction.prob_AW) > 60
+    ? `${customTruncate(dataFixture.match_awayteam_name, 15)} to win`
+    : parseInt(dataPrediction.prob_D) > 55
+    ? `Draw`
+    : parseInt(dataPrediction.prob_HW_AW) > 65
+    ? `${customTruncate(
+        dataFixture.match_hometeam_name,
+        15
+      )} or ${customTruncate(dataFixture.match_awayteam_name, 15)} to win`
+    : parseInt(dataPrediction.prob_O_1) > 60
+    ? `Over 1.5 goals`
+    : parseInt(dataPrediction.prob_O) > 60
+    ? `Over 2.5 goals`
+    : parseInt(dataPrediction.prob_O_3) > 60
+    ? `Over 3.5 goals`
+    : parseInt(dataPrediction.prob_U_3) > 60
+    ? `Under 3.5 goals`
+    : parseInt(dataPrediction.prob_U) > 60
+    ? `Under 2.5 goals`
+    : parseInt(dataPrediction.prob_U_1) > 60
+    ? `Under 1.5 goals`
+    : parseInt(dataPrediction.prob_bts) > 60
+    ? `Both Team To Score`
+    : parseInt(dataPrediction.prob_ots) > 60
+    ? `Only one Team to Score`
+    : `${customTruncate(
+        dataFixture.match_hometeam_name,
+        15
+      )} or ${customTruncate(dataFixture.match_awayteam_name, 15)} to win`;
 };
 
 export const emptyLogo = `https://apiv3.apifootball.com/badges/27845_stade-dabidjan.jpg`;

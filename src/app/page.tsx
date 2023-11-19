@@ -152,22 +152,30 @@ export default async function Home() {
               />
               <div className={styles.text}>{match.country}</div>
             </div>
-            {match.fixture.map((data, index) => (
-              <Card
-                key={
-                  parseInt(data.fixture.match_id) + getRandomNumber() + index
-                }
-                data={data}
-                time={data.fixture.match_date}
-                leagueName={data.fixture.league_name}
-                country={data.fixture.country_name}
-                countryFlag={data.fixture.country_logo}
-                homeTeam={data.fixture.match_hometeam_name}
-                awayTeam={data.fixture.match_awayteam_name}
-                homeTeamLogo={data.fixture.team_home_badge}
-                awayTeamLogo={data.fixture.team_away_badge}
-              />
-            ))}
+            {match.fixture.map(
+              (data, index) =>
+                data.prediction.prob_HW && (
+                  <div
+                    key={
+                      parseInt(data.fixture.match_id) +
+                      getRandomNumber() +
+                      index
+                    }
+                  >
+                    <Card
+                      data={data}
+                      time={data.fixture.match_date}
+                      leagueName={data.fixture.league_name}
+                      country={data.fixture.country_name}
+                      countryFlag={data.fixture.country_logo}
+                      homeTeam={data.fixture.match_hometeam_name}
+                      awayTeam={data.fixture.match_awayteam_name}
+                      homeTeamLogo={data.fixture.team_home_badge}
+                      awayTeamLogo={data.fixture.team_away_badge}
+                    />
+                  </div>
+                )
+            )}
           </div>
         ))}
       </main>
