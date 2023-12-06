@@ -8,7 +8,7 @@ type dataType = {
 
 async function fetchData(from: string, to: string) {
   const res = await fetch(
-    `https://apiv3.apifootball.com/?action=get_events&from=${from}&to=${to}&APIkey=${apiKey}`
+    `https://apiv3.apifootball.com/?action=get_events&from=${from}&to=${to}&APIkey=${apiKey}&limit=50`
   );
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
